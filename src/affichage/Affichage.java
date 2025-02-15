@@ -40,10 +40,13 @@ public class Affichage {
 	}
 
 	public void afficherCartes(String cartes[][]) {
+		System.out.println("---------------------\n");
+		System.out.println("AFFICHAGE DES CARTES : \n");
 		for(int i=0;i<cartes.length;i++) {
 			System.out.println(" \t numero carte : "+(i+1));
 			afficherCarte(cartes[i]);
 		}
+		System.out.println("---------------------\n");
 	}
 	
 	public void afficherJoueur(String joueur[]) {
@@ -51,9 +54,12 @@ public class Affichage {
 	}
 	
 	public void afficherJoueurs(String joueurs[][]) {
+		System.out.println("---------------------\n");
+		System.out.println("AFFICHAGE DES JOUEURS : \n");
 		for(int i=0;i<NB_JOUEUR_MAX;i++) {
 			afficherJoueur(joueurs[i]);
 		}
+		System.out.println("---------------------\n");
 	}
 	
 	public void piocherMain(String cartes[][],String nom) {
@@ -93,6 +99,9 @@ public class Affichage {
 		System.out.println("C'est au tour de "+nom+" de jouer \n");
 	}
 	
+	public void afficherGagnant(String nom) {
+		System.out.println("Felicitation a "+nom+" il a gagne la partie \n");
+	}
 	
 	/*Es ce que c'est a cette classe de recuperer le numéro de la carte a jouer ?*/
 	/*Car j'ai pensé que ma methode pouvais recuperer le numero de la carte et la retourner*/
@@ -229,17 +238,18 @@ public class Affichage {
 		affichage.piocherMain(cartes1,nomJoueur1);
 		affichage.piocherMain(cartes2,nomJoueur2);
 		affichage.afficherTour(nomJoueur1);
-		affichage.afficherJoueur(joueur1);
 		affichage.piocherCarte(carte12,nomJoueur1);
 		affichage.afficherCartes(cartes1);
 		choixCarte = affichage.choisirCarte(nomJoueur1);
 		affichage.jouerCarte(carte3,nomJoueur1,true);
+		affichage.afficherJoueurs(joueurs);
 		affichage.afficherTour(nomJoueur2);
-		affichage.afficherJoueur(joueur2);
 		affichage.piocherCarte(carte9,nomJoueur2);
 		affichage.afficherCartes(cartes2);
 		choixCarte = affichage.choisirCarte(nomJoueur1);
 		affichage.jouerCarte(carte7,nomJoueur2,false);
+		affichage.afficherJoueurs(joueurs);
+		affichage.afficherGagnant(nomJoueur2);
 	}
 	/*Les parametres d'ntres sont de types primitifs, tableaux, enum, String*/
 }
