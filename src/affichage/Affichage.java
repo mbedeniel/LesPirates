@@ -93,9 +93,17 @@ public class Affichage {
 		System.out.println("C'est au tour de "+nom+" de jouer \n");
 	}
 	
-	public void choisirCarte(String nom) {
-		System.out.println("Vous voulez jouez qu'elle carte ? \n");
-		int numCarte = scanner.nextInt();
+	
+	/*Es ce que c'est a cette classe de recuperer le numéro de la carte a jouer ?*/
+	/*Car j'ai pensé que ma methode pouvais recuperer le numero de la carte et la retourner*/
+	public int choisirCarte(String nom) {
+		int numCarte;
+		do {
+			System.out.println(nom +" tu veux jouer qu'elle carte ? \n");
+			System.out.println("Entre un numero de carte parmi celle que tu as \n");
+			numCarte = scanner.nextInt();
+		}while(1 < numCarte && numCarte > 5);
+		return numCarte;
 	}
 	
 	public static void main(String[] args) {
@@ -211,6 +219,7 @@ public class Affichage {
 		joueur2[1]="5";
 		joueur2[2]="0";
 		String[][] joueurs = {joueur1,joueur2};
+		int choixCarte;
 		
 		Affichage affichage =  new Affichage();
 		affichage.afficherMessageAccueil();
@@ -223,11 +232,13 @@ public class Affichage {
 		affichage.afficherJoueur(joueur1);
 		affichage.piocherCarte(carte12,nomJoueur1);
 		affichage.afficherCartes(cartes1);
+		choixCarte = affichage.choisirCarte(nomJoueur1);
 		affichage.jouerCarte(carte3,nomJoueur1,true);
 		affichage.afficherTour(nomJoueur2);
 		affichage.afficherJoueur(joueur2);
 		affichage.piocherCarte(carte9,nomJoueur2);
 		affichage.afficherCartes(cartes2);
+		choixCarte = affichage.choisirCarte(nomJoueur1);
 		affichage.jouerCarte(carte7,nomJoueur2,false);
 	}
 	/*Les parametres d'ntres sont de types primitifs, tableaux, enum, String*/
