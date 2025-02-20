@@ -228,6 +228,7 @@ public class Affichage {
 		joueur2[1]="5";
 		joueur2[2]="0";
 		String[][] joueurs = {joueur1,joueur2};
+		String[][][] mainCartes = {cartes1,cartes2};
 		int choixCarte;
 		
 		Affichage affichage =  new Affichage();
@@ -235,20 +236,17 @@ public class Affichage {
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
 		affichage.afficherJoueurs(joueurs);
-		affichage.piocherMain(cartes1,nomJoueur1);
-		affichage.piocherMain(cartes2,nomJoueur2);
-		affichage.afficherTour(nomJoueur1);
-		affichage.piocherCarte(carte12,nomJoueur1);
-		affichage.afficherCartes(cartes1);
-		choixCarte = affichage.choisirCarte(nomJoueur1);
-		affichage.jouerCarte(carte3,nomJoueur1,true);
-		affichage.afficherJoueurs(joueurs);
-		affichage.afficherTour(nomJoueur2);
-		affichage.piocherCarte(carte9,nomJoueur2);
-		affichage.afficherCartes(cartes2);
-		choixCarte = affichage.choisirCarte(nomJoueur1);
-		affichage.jouerCarte(carte7,nomJoueur2,false);
-		affichage.afficherJoueurs(joueurs);
+		for(int i=0;i<2;i++) {
+			affichage.piocherMain(mainCartes[i],joueurs[i][0]);
+		}
+		for(int i=0;i<2;i++) {
+			affichage.afficherTour(joueurs[i][0]);
+			affichage.piocherCarte(carte12,joueurs[i][0]);
+			affichage.afficherCartes(cartes1);
+			choixCarte = affichage.choisirCarte(joueurs[i][0]);
+			affichage.jouerCarte(carte12,joueurs[i][0],true);
+			affichage.afficherJoueurs(joueurs);
+		}
 		affichage.afficherGagnant(nomJoueur2);
 	}
 	/*Les parametres d'ntres sont de types primitifs, tableaux, enum, String*/
