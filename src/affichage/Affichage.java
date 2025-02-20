@@ -118,7 +118,7 @@ public class Affichage {
 		carte0[2] = "0";
 		carte0[3] = "retire 1 point de vie a l'adversaire";
 		String[] carte1 = new String[4];
-		carte1[0] = "ÉPÉE ARDENTE";
+		carte1[0] = "EPEE ARDENTE";
 		carte1[1] = "2";
 		carte1[2] = "0";
 		carte1[3] = "retire 2 points de vie a l'adversaire";
@@ -143,13 +143,13 @@ public class Affichage {
 		carte5[2] = "0";
 		carte5[3] = "retire 2 points de vie a l'adversaire";
 		String[] carte6 = new String[4];
-		carte6[0] = "DÉFI SANGLANT";
+		carte6[0] = "DEFI SANGLANT";
 		carte6[1] = "3";
 		carte6[2] = "0";
 		carte6[3] = "retire 3 points de vie a l'adversaire";
 
 		String[] carte7 = new String[4];
-		carte7[0] = "DISCOURS SINCÈRE";
+		carte7[0] = "DISCOURS SINCERE";
 		carte7[1] = "0";
 		carte7[2] = "2";
 		carte7[3] = "ajoute 2 points de popularite a l'utilisateur";
@@ -174,7 +174,7 @@ public class Affichage {
 		carte11[2] = "3";
 		carte11[3] = "ajoute 3 points de popularite a l'utilisateur";
 		String[] carte12 = new String[4];
-		carte12[0] = "DISCOURS ENFLAMMÉ";
+		carte12[0] = "DISCOURS ENFLAMME";
 		carte12[1] = "0";
 		carte12[2] = "2";
 		carte12[3] = "ajoute 2 points de popularite a l'utilisateur";
