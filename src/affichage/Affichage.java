@@ -75,9 +75,9 @@ public class Affichage {
 		afficherCarte(carte);
 	}
 	
-	public void jouerCarte(String[] carte,String nom,Boolean zone) {
+	public void jouerCarte(String[] carte,String nom,Boolean zoneAttaque) {
 		String nomZone;
-		switch(zone) {
+		switch(zoneAttaque) {
 		case true:
 			nomZone = "ATTAQUE";
 			break;
@@ -104,7 +104,7 @@ public class Affichage {
 		int numCarte;
 		do {
 			System.out.println(nom +" tu veux jouer qu'elle carte ? \n");
-			System.out.println("Entre un numero de carte parmi celle que tu as \n");
+			System.out.println("Entre un numero de carte pour jouer : \n");
 			numCarte = scanner.nextInt();
 		}while(1 < numCarte && numCarte > 5);
 		return numCarte;
@@ -234,14 +234,18 @@ public class Affichage {
 		for(int i=0;i<2;i++) {
 			affichage.piocherMain(mainCartes[i],joueurs[i][0]);
 		}
-		for(int i=0;i<2;i++) {
-			affichage.afficherTour(joueurs[i][0]);
-			affichage.piocherCarte(carte12,joueurs[i][0]);
-			affichage.afficherCartes(cartes1);
-			choixCarte = affichage.choisirCarte(joueurs[i][0]);
-			affichage.jouerCarte(carte12,joueurs[i][0],true);
-			affichage.afficherJoueurs(joueurs);
-		}
+		boolean avoirGagne = false;
+		do {
+			for(int i=0;i<2;i++) {
+				affichage.afficherTour(joueurs[i][0]);
+				affichage.piocherCarte(carte12,joueurs[i][0]);
+				affichage.afficherCartes(mainCartes[i]);
+				choixCarte = affichage.choisirCarte(joueurs[i][0]);
+				affichage.jouerCarte(mainCartes[i][choixCarte-1],joueurs[i][0],true);
+				affichage.afficherJoueurs(joueurs);
+			}
+			avoirGagne = true;
+		}while(!avoirGagne);
 		affichage.afficherGagnant(nomJoueur2);
 	}
 	/*Les parametres d'ntres sont de types primitifs, tableaux, enum, String*/
