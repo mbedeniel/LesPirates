@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Affichage {
 	
 	private Scanner scanner = new Scanner(System.in);
-	private static int NB_CARTE_MAIN = 4;
-	private static int NB_JOUEUR_MAX = 2;
+	private final static int  NB_CARTE_MAIN = 4;
+	private final static int NB_JOUEUR_MAX = 2;
 	
 	public void afficherMessageAccueil() {
 		System.out.println("Bienvenue \n");
