@@ -116,83 +116,83 @@ public class Affichage {
 		carte0[0] = "ATTAQUE SURPRISE";
 		carte0[1] = "1";
 		carte0[2] = "0";
-		carte0[3] = "retire 1 point de vie à l'adversaire";
+		carte0[3] = "retire 1 point de vie a l'adversaire";
 		String[] carte1 = new String[4];
 		carte1[0] = "ÉPÉE ARDENTE";
 		carte1[1] = "2";
 		carte1[2] = "0";
-		carte1[3] = "retire 2 points de vie à l'adversaire";
+		carte1[3] = "retire 2 points de vie a l'adversaire";
 		String[] carte2 = new String[4];
 		carte2[0] = "COUP DE CROCHET";
 		carte2[1] = "3";
 		carte2[2] = "0";
-		carte2[3] = "retire 3 points de vie à l'adversaire";
+		carte2[3] = "retire 3 points de vie a l'adversaire";
 		String[] carte3 = new String[4];
 		carte3[0] = "COUP DE BOUTEILLE";
 		carte3[1] = "2";
 		carte3[2] = "0";
-		carte3[3] = "retire 2 points de vie à l'adversaire";
+		carte3[3] = "retire 2 points de vie a l'adversaire";
 		String[] carte4 = new String[4];
 		carte4[0] = "LANCER DE DAGUE";
 		carte4[1] = "1";
 		carte4[2] = "0";
-		carte4[3] = "retire 1 point de vie à l'adversaire";
+		carte4[3] = "retire 1 point de vie a l'adversaire";
 		String[] carte5 = new String[4];
 		carte5[0] = "PROVOCATION BRUTALE";
 		carte5[1] = "2";
 		carte5[2] = "0";
-		carte5[3] = "retire 2 points de vie à l'adversaire";
+		carte5[3] = "retire 2 points de vie a l'adversaire";
 		String[] carte6 = new String[4];
 		carte6[0] = "DÉFI SANGLANT";
 		carte6[1] = "3";
 		carte6[2] = "0";
-		carte6[3] = "retire 3 points de vie à l'adversaire";
+		carte6[3] = "retire 3 points de vie a l'adversaire";
 
 		String[] carte7 = new String[4];
 		carte7[0] = "DISCOURS SINCÈRE";
 		carte7[1] = "0";
 		carte7[2] = "2";
-		carte7[3] = "ajoute 2 points de popularité à l'utilisateur";
+		carte7[3] = "ajoute 2 points de popularite a l'utilisateur";
 		String[] carte8 = new String[4];
 		carte8[0] = "DISCOURS BRUTAL";
 		carte8[1] = "-1";
 		carte8[2] = "3";
-		carte8[3] = "ajoute 3 points de popularité à l'utilisateur mais lui retire 1 point de vie";
+		carte8[3] = "ajoute 3 points de popularite a l'utilisateur mais lui retire 1 point de vie";
 		String[] carte9 = new String[4];
 		carte9[0] = "CHANT DE PIRATE";
 		carte9[1] = "0";
 		carte9[2] = "2";
-		carte9[3] = "ajoute 2 points de popularité à l'utilisateur";
+		carte9[3] = "ajoute 2 points de popularite a l'utilisateur";
 		String[] carte10 = new String[4];
 		carte10[0] = "TRAHISON MALICIEUSE";
 		carte10[1] = "-2";
 		carte10[2] = "4";
-		carte10[3] = "ajoute 4 points de popularité à l'utilisateur mais lui retire 2 points de vie";
+		carte10[3] = "ajoute 4 points de popularite a l'utilisateur mais lui retire 2 points de vie";
 		String[] carte11 = new String[4];
 		carte11[0] = "SERMENT DE FRATERNITE";
 		carte11[1] = "0";
 		carte11[2] = "3";
-		carte11[3] = "ajoute 3 points de popularité à l'utilisateur";
+		carte11[3] = "ajoute 3 points de popularite a l'utilisateur";
 		String[] carte12 = new String[4];
 		carte12[0] = "DISCOURS ENFLAMMÉ";
 		carte12[1] = "0";
 		carte12[2] = "2";
-		carte12[3] = "ajoute 2 points de popularité à l'utilisateur";
+		carte12[3] = "ajoute 2 points de popularite a l'utilisateur";
 	
 		String[][] data = {
-		    {"ATTAQUE SURPRISE", "1", "0", "retire 1 point de vie à l'adversaire"},
-		    {"ÉPÉE ARDENTE", "2", "0", "retire 2 points de vie à l'adversaire"},
-		    {"COUP DE CROCHET", "3", "0", "retire 3 points de vie à l'adversaire"},
-		    {"COUP DE BOUTEILLE", "2", "0", "retire 2 points de vie à l'adversaire"},
-		    {"LANCER DE DAGUE", "1", "0", "retire 1 point de vie à l'adversaire"},
-		    {"PROVOCATION BRUTALE", "2", "0", "retire 2 points de vie à l'adversaire"},
+		    {"ATTAQUE SURPRISE", "1", "0", "retire 1 point de vie a l'adversaire"},
+		    {"ÉPÉE ARDENTE", "2", "0", "retire 2 points de vie a l'adversaire"},
+		    {"COUP DE CROCHET", "3", "0", "retire 3 points de vie a l'adversaire"},
+		    {"COUP DE BOUTEILLE", "2", "0", "retire 2 points de vie a l'adversaire"},
+		    {"LANCER DE DAGUE", "1", "0", "retire 1 point de vie a l'adversaire"},
+		    {"PROVOCATION BRUTALE", "2", "0", "retire 2 points de vie a l'adversaire"},
 		    {"DÉFI SANGLANT", "3", "0", "retire 3 points de vie à l'adversaire"},
-		    {"DISCOURS SINCERE", "0", "2", "ajoute 2 points de popularité à l'utilisateur"},
-		    {"DISCOURS BRUTAL", "-1", "3", "ajoute 3 points de popularité à l'utilisateur mais lui retire 1 point de vie"},
-		    {"CHANT DE PIRATE", "0", "2", "ajoute 2 points de popularité à l'utilisateur"},
-		    {"TRAHISON MALICIEUSE", "-2", "4", "ajoute 4 points de popularité à l'utilisateur mais lui retire 2 points de vie"},
-		    {"SERMENT DE FRATERNITE", "0", "3", "ajoute 3 points de popularité à l'utilisateur"},
-		    {"DISCOURS ENFLAMME", "0", "2", "ajoute 2 points de popularité à l'utilisateur"}
+		    {"DISCOURS SINCERE", "0", "2", "ajoute 2 points de popularite a l'utilisateur"},
+		    {"DISCOURS BRUTAL", "-1", "3", "ajoute 3 points de popularite a l'utilisateur mais lui retire 1 point de vie"},
+		    {"CHANT DE PIRATE", "0", "2", "ajoute 2 points de popularite a l'utilisateur"},
+		    {"TRAHISON MALICIEUSE", "-2", "4", "ajoute 4 points de popularite a l'utilisateur mais lui retire 2 points de vie"},
+		    {"SERMENT DE FRATERNITE", "0", "3", "ajoute 3 points de popularite a l'utilisateur"},
+		    {"DISCOURS ENFLAMME", "0", "2", "ajoute 2 points de popularite a l'utilisateur"}
 		};
 		int lengthCartes =  data.length;
 		String[][] cartes = new String[lengthCartes][4];
