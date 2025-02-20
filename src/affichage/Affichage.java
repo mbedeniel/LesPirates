@@ -64,13 +64,8 @@ public class Affichage {
 	
 	public void piocherMain(String cartes[][],String nom) {
 		System.out.println(nom + " pioche une main de "+NB_CARTE_MAIN+" cartes \n");
-		String[] carte = new String[4];
 		for(int i=0;i<NB_CARTE_MAIN;i++) {
-			carte[0]=cartes[i][0];
-			carte[1]=cartes[i][1];
-			carte[2]=cartes[i][2];
-			carte[3]=cartes[i][3];
-			piocherCarte(carte,nom);
+			piocherCarte(cartes[i],nom);
 		}
 		
 	}
