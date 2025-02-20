@@ -181,12 +181,12 @@ public class Affichage {
 	
 		String[][] data = {
 		    {"ATTAQUE SURPRISE", "1", "0", "retire 1 point de vie a l'adversaire"},
-		    {"ÉPÉE ARDENTE", "2", "0", "retire 2 points de vie a l'adversaire"},
+		    {"ÉPEE ARDENTE", "2", "0", "retire 2 points de vie a l'adversaire"},
 		    {"COUP DE CROCHET", "3", "0", "retire 3 points de vie a l'adversaire"},
 		    {"COUP DE BOUTEILLE", "2", "0", "retire 2 points de vie a l'adversaire"},
 		    {"LANCER DE DAGUE", "1", "0", "retire 1 point de vie a l'adversaire"},
 		    {"PROVOCATION BRUTALE", "2", "0", "retire 2 points de vie a l'adversaire"},
-		    {"DÉFI SANGLANT", "3", "0", "retire 3 points de vie à l'adversaire"},
+		    {"DEFI SANGLANT", "3", "0", "retire 3 points de vie a l'adversaire"},
 		    {"DISCOURS SINCERE", "0", "2", "ajoute 2 points de popularite a l'utilisateur"},
 		    {"DISCOURS BRUTAL", "-1", "3", "ajoute 3 points de popularite a l'utilisateur mais lui retire 1 point de vie"},
 		    {"CHANT DE PIRATE", "0", "2", "ajoute 2 points de popularite a l'utilisateur"},
