@@ -2,116 +2,119 @@ package affichage;
 
 import java.util.Scanner;
 
-public class Affichage {
-	
+public class Affichage implements IAffichage {
+
 	private Scanner scanner = new Scanner(System.in);
-	private static final int  NB_CARTE_MAIN = 4;
+	private static final int NB_CARTE_MAIN = 4;
 	private static final int NB_JOUEUR_MAX = 2;
-	
+
+	@Override
 	public void afficherMessageAccueil() {
 		System.out.println("Bienvenue \n");
 	}
-	
+
+	@Override
 	public void raconterHistoire() {
 		System.out.println("Jack le Borgne et Bill Jambe-de-Bois sont deux pirates souhaitant prendre le \n"
 				+ "commandement du navire à l’etendard noir, « Le Sanguinaire ». L’equipage doit donc les \n"
 				+ "departager par un vote. Chacun des deux rivaux doit ainsi gagner en popularite (ou \n"
 				+ "affaiblir son adversaire) afin de devenir le nouveau capitaine. \n");
 	}
-	
+
+	@Override
 	public void presenterJeux() {
-		System.out.println( "Le Jeu des Pirates est un jeu de societe de cartes dans lequel deux joueurs \n"
-				+ "s’affrontent. \n"
-				+ "-Chaque joueur pioche quatre cartes. A tour de role, un pirate pioche une nouvelle \n"
-				+ "carte et l’ajoute à sa main. Il doit ensuite decider s’il attaque son adversaire ou s’il \n"
-				+ "s’attribue des points de popularite. \n"
-				+ "-Chaque pirate possede cinq cœurs rouges correspondant a ses points de vie. S’il n’a \n"
-				+ "plus de coeur, alors il a perdu et son adversaire gagne. \n"
-				+ "-Le but du jeu est que son pirate atteigne cinq points de popularite ou simplement \n"
-				+ "survive plus longtemps que son adversaire ! \n"
-				+ "-Au debut de son tour, le pirate pioche une carte et l’ajoute à sa main. \n"
-				+ "Il choisit ensuite parmi sa main, composee de cinq cartes, une carte qu’il depose : \n"
-				+ "\t -Dans sa zone de popularite s’il s’agit d’une carte de popularite, \n"
-				+ "\t -Dans la zone de son adversaire s’il s’agit d’une carte d’attaque. \n");
-	}
-	
-	public void afficherCarte(String carte[]) {
-		System.out.println(" \t titre : "+carte[0]+"\n \t vie : "+carte[1]+"\n \t popularite : "+carte[2]+"\n \t description : "+carte[3]+" \n");
+		System.out.println(
+				"Le Jeu des Pirates est un jeu de societe de cartes dans lequel deux joueurs \n" + "s’affrontent. \n"
+						+ "-Chaque joueur pioche quatre cartes. A tour de role, un pirate pioche une nouvelle \n"
+						+ "carte et l’ajoute à sa main. Il doit ensuite decider s’il attaque son adversaire ou s’il \n"
+						+ "s’attribue des points de popularite. \n"
+						+ "-Chaque pirate possede cinq cœurs rouges correspondant a ses points de vie. S’il n’a \n"
+						+ "plus de coeur, alors il a perdu et son adversaire gagne. \n"
+						+ "-Le but du jeu est que son pirate atteigne cinq points de popularite ou simplement \n"
+						+ "survive plus longtemps que son adversaire ! \n"
+						+ "-Au debut de son tour, le pirate pioche une carte et l’ajoute à sa main. \n"
+						+ "Il choisit ensuite parmi sa main, composee de cinq cartes, une carte qu’il depose : \n"
+						+ "\t -Dans sa zone de popularite s’il s’agit d’une carte de popularite, \n"
+						+ "\t -Dans la zone de son adversaire s’il s’agit d’une carte d’attaque. \n");
 	}
 
+	@Override
+	public void afficherCarte(String carte[]) {
+		System.out.println(" \t titre : " + carte[0] + "\n \t vie : " + carte[1] + "\n \t popularite : " + carte[2]
+				+ "\n \t description : " + carte[3] + " \n");
+	}
+
+	@Override
 	public void afficherCartes(String cartes[][]) {
 		System.out.println("---------------------\n");
 		System.out.println("AFFICHAGE DES CARTES : \n");
-		for(int i=0;i<cartes.length;i++) {
-			System.out.println(" \t numero carte : "+(i+1));
+		for (int i = 0; i < cartes.length; i++) {
+			System.out.println(" \t numero carte : " + (i + 1));
 			afficherCarte(cartes[i]);
 		}
 		System.out.println("---------------------\n");
 	}
-	
+
+	@Override
 	public void afficherJoueur(String joueur[]) {
-		System.out.println(" \t nom : "+joueur[0]+"\n \t vie : "+joueur[1]+"\n \t popularite : "+joueur[2]+" \n");
+		System.out.println(
+				" \t nom : " + joueur[0] + "\n \t vie : " + joueur[1] + "\n \t popularite : " + joueur[2] + " \n");
 	}
-	
+
+	@Override
 	public void afficherJoueurs(String joueurs[][]) {
 		System.out.println("---------------------\n");
 		System.out.println("AFFICHAGE DES JOUEURS : \n");
-		for(int i=0;i<NB_JOUEUR_MAX;i++) {
+		for (int i = 0; i < NB_JOUEUR_MAX; i++) {
 			afficherJoueur(joueurs[i]);
 		}
 		System.out.println("---------------------\n");
 	}
-	
-	public void piocherMain(String cartes[][],String nom) {
-		System.out.println(nom + " pioche une main de "+NB_CARTE_MAIN+" cartes \n");
-		for(int i=0;i<NB_CARTE_MAIN;i++) {
-			piocherCarte(cartes[i],nom);
+
+	@Override
+	public void piocherMain(String cartes[][], String nom) {
+		System.out.println(nom + " pioche une main de " + NB_CARTE_MAIN + " cartes \n");
+		for (int i = 0; i < NB_CARTE_MAIN; i++) {
+			piocherCarte(cartes[i], nom);
 		}
-		
+
 	}
-	
-	public void piocherCarte(String carte[],String nom) {
+
+	@Override
+	public void piocherCarte(String carte[], String nom) {
 		System.out.println(nom + " pioche une carte \n");
 		afficherCarte(carte);
 	}
-	
-	public void jouerCarte(String[] carte,String nom,Boolean zoneAttaque) {
-		String nomZone;
-		switch(zoneAttaque) {
-		case true:
-			nomZone = "ATTAQUE";
-			break;
-		case false:
-			nomZone = "POPULARITE";
-			break;
-			
-		}
-		System.out.println(nom+" joue une carte dans la zone "+nomZone+" \n");
+
+	@Override
+	public void jouerCarte(String[] carte, String nom, ZoneJeu zoneJeu) {
+		System.out.println(nom + " joue une carte dans la zone " + zoneJeu.toString() + " \n");
 		afficherCarte(carte);
 	}
-	
+
+	@Override
 	public void afficherTour(String nom) {
-		System.out.println("C'est au tour de "+nom+" de jouer \n");
+		System.out.println("C'est au tour de " + nom + " de jouer \n");
 	}
-	
+
+	@Override
 	public void afficherGagnant(String nom) {
-		System.out.println("Felicitation a "+nom+" il a gagne la partie \n");
+		System.out.println("Felicitation a " + nom + " il a gagne la partie \n");
 	}
-	
-	/*Es ce que c'est a cette classe de recuperer le numéro de la carte a jouer ?*/
-	/*Car j'ai pensé que ma methode pouvais recuperer le numero de la carte et la retourner*/
+
+	@Override
 	public int choisirCarte(String nom) {
 		int numCarte;
 		do {
-			System.out.println(nom +" tu veux jouer qu'elle carte ? \n");
-			System.out.println("Entre un numero de carte pour jouer : \n");
+			System.out.println(nom + " tu veux jouer qu'elle carte ? \n");
+			System.out.println("Entre un numero de carte pour jouer : ");
 			numCarte = scanner.nextInt();
-		}while(1 < numCarte && numCarte > 5);
+		} while (1 < numCarte && numCarte > 5);
 		return numCarte;
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		String[] carte0 = new String[4];
 		carte0[0] = "ATTAQUE SURPRISE";
 		carte0[1] = "1";
@@ -178,75 +181,75 @@ public class Affichage {
 		carte12[1] = "0";
 		carte12[2] = "2";
 		carte12[3] = "ajoute 2 points de popularite a l'utilisateur";
-	
-		String[][] data = {
-		    {"ATTAQUE SURPRISE", "1", "0", "retire 1 point de vie a l'adversaire"},
-		    {"ÉPEE ARDENTE", "2", "0", "retire 2 points de vie a l'adversaire"},
-		    {"COUP DE CROCHET", "3", "0", "retire 3 points de vie a l'adversaire"},
-		    {"COUP DE BOUTEILLE", "2", "0", "retire 2 points de vie a l'adversaire"},
-		    {"LANCER DE DAGUE", "1", "0", "retire 1 point de vie a l'adversaire"},
-		    {"PROVOCATION BRUTALE", "2", "0", "retire 2 points de vie a l'adversaire"},
-		    {"DEFI SANGLANT", "3", "0", "retire 3 points de vie a l'adversaire"},
-		    {"DISCOURS SINCERE", "0", "2", "ajoute 2 points de popularite a l'utilisateur"},
-		    {"DISCOURS BRUTAL", "-1", "3", "ajoute 3 points de popularite a l'utilisateur mais lui retire 1 point de vie"},
-		    {"CHANT DE PIRATE", "0", "2", "ajoute 2 points de popularite a l'utilisateur"},
-		    {"TRAHISON MALICIEUSE", "-2", "4", "ajoute 4 points de popularite a l'utilisateur mais lui retire 2 points de vie"},
-		    {"SERMENT DE FRATERNITE", "0", "3", "ajoute 3 points de popularite a l'utilisateur"},
-		    {"DISCOURS ENFLAMME", "0", "2", "ajoute 2 points de popularite a l'utilisateur"}
-		};
-		int lengthCartes =  data.length;
+
+		String[][] data = { { "ATTAQUE SURPRISE", "1", "0", "retire 1 point de vie a l'adversaire" },
+				{ "ÉPEE ARDENTE", "2", "0", "retire 2 points de vie a l'adversaire" },
+				{ "COUP DE CROCHET", "3", "0", "retire 3 points de vie a l'adversaire" },
+				{ "COUP DE BOUTEILLE", "2", "0", "retire 2 points de vie a l'adversaire" },
+				{ "LANCER DE DAGUE", "1", "0", "retire 1 point de vie a l'adversaire" },
+				{ "PROVOCATION BRUTALE", "2", "0", "retire 2 points de vie a l'adversaire" },
+				{ "DEFI SANGLANT", "3", "0", "retire 3 points de vie a l'adversaire" },
+				{ "DISCOURS SINCERE", "0", "2", "ajoute 2 points de popularite a l'utilisateur" },
+				{ "DISCOURS BRUTAL", "-1", "3",
+						"ajoute 3 points de popularite a l'utilisateur mais lui retire 1 point de vie" },
+				{ "CHANT DE PIRATE", "0", "2", "ajoute 2 points de popularite a l'utilisateur" },
+				{ "TRAHISON MALICIEUSE", "-2", "4",
+						"ajoute 4 points de popularite a l'utilisateur mais lui retire 2 points de vie" },
+				{ "SERMENT DE FRATERNITE", "0", "3", "ajoute 3 points de popularite a l'utilisateur" },
+				{ "DISCOURS ENFLAMME", "0", "2", "ajoute 2 points de popularite a l'utilisateur" } };
+		int lengthCartes = data.length;
 		String[][] cartes = new String[lengthCartes][4];
 		for (int i = 0; i < lengthCartes; i++) {
-		    for (int j = 0; j < NB_CARTE_MAIN; j++) {
-		        cartes[i][j] = data[i][j];
-		    }
-		}
-		
-		String[][] cartes1 = new String[NB_CARTE_MAIN][4];
-		String[][] cartes2 = new String[NB_CARTE_MAIN][4];
-		for(int i=0;i<NB_CARTE_MAIN;i++) {
-			for(int j=0;j<4;j++) {
-				cartes1[i][j]=cartes[i][j];
-				cartes2[i][j]=cartes[lengthCartes-1-i][j];
+			for (int j = 0; j < NB_CARTE_MAIN; j++) {
+				cartes[i][j] = data[i][j];
 			}
 		}
-		
-		String nomJoueur1="Jack le Borgne";
-		String nomJoueur2="Bill Jambe-de-Bois";
-		
+
+		String[][] cartes1 = new String[NB_CARTE_MAIN][4];
+		String[][] cartes2 = new String[NB_CARTE_MAIN][4];
+		for (int i = 0; i < NB_CARTE_MAIN; i++) {
+			for (int j = 0; j < 4; j++) {
+				cartes1[i][j] = cartes[i][j];
+				cartes2[i][j] = cartes[lengthCartes - 1 - i][j];
+			}
+		}
+
+		String nomJoueur1 = "Jack le Borgne";
+		String nomJoueur2 = "Bill Jambe-de-Bois";
+
 		String[] joueur1 = new String[3];
-		joueur1[0]=nomJoueur1;
-		joueur1[1]="5";
-		joueur1[2]="0";
+		joueur1[0] = nomJoueur1;
+		joueur1[1] = "5";
+		joueur1[2] = "0";
 		String[] joueur2 = new String[3];
-		joueur2[0]=nomJoueur2;
-		joueur2[1]="5";
-		joueur2[2]="0";
-		String[][] joueurs = {joueur1,joueur2};
-		String[][][] mainCartes = {cartes1,cartes2};
+		joueur2[0] = nomJoueur2;
+		joueur2[1] = "5";
+		joueur2[2] = "0";
+		String[][] joueurs = { joueur1, joueur2 };
+		String[][][] mainCartes = { cartes1, cartes2 };
 		int choixCarte;
-		
-		Affichage affichage =  new Affichage();
+
+		IAffichage affichage = new Affichage();
 		affichage.afficherMessageAccueil();
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
 		affichage.afficherJoueurs(joueurs);
-		for(int i=0;i<2;i++) {
-			affichage.piocherMain(mainCartes[i],joueurs[i][0]);
+		for (int i = 0; i < 2; i++) {
+			affichage.piocherMain(mainCartes[i], joueurs[i][0]);
 		}
 		boolean avoirGagne = false;
 		do {
-			for(int i=0;i<2;i++) {
+			for (int i = 0; i < 2; i++) {
 				affichage.afficherTour(joueurs[i][0]);
-				affichage.piocherCarte(carte12,joueurs[i][0]);
+				affichage.piocherCarte(carte12, joueurs[i][0]);
 				affichage.afficherCartes(mainCartes[i]);
 				choixCarte = affichage.choisirCarte(joueurs[i][0]);
-				affichage.jouerCarte(mainCartes[i][choixCarte-1],joueurs[i][0],true);
+				affichage.jouerCarte(mainCartes[i][choixCarte - 1], joueurs[i][0], ZoneJeu.ATTAQUE);
 				affichage.afficherJoueurs(joueurs);
 			}
 			avoirGagne = true;
-		}while(!avoirGagne);
+		} while (!avoirGagne);
 		affichage.afficherGagnant(nomJoueur2);
 	}
-	/*Les parametres d'ntres sont de types primitifs, tableaux, enum, String*/
+	/* Les parametres d'ntres sont de types primitifs, tableaux, enum, String */
 }
