@@ -2,23 +2,23 @@ package affichage;
 
 public interface IAffichage {
 
-	void afficherMessageAccueil();
+	void souhaiterBienvenue();
 
 	void raconterHistoire();
 
 	void presenterJeux();
 
-	void afficherCarte(String carte[]);
+	void afficherCarte(String[] carte);
 
-	void afficherCartes(String cartes[][]);
+	void afficherCartes(String[][] cartes);
 
-	void afficherJoueur(String joueur[]);
+	void afficherJoueur(String[] joueur);
 
-	void afficherJoueurs(String joueurs[][]);
+	void afficherJoueurs(String[][] joueurs);
 
-	void piocherMain(String cartes[][], String nom);
+	void piocherMain(String[][] cartes, String nom);
 
-	void piocherCarte(String carte[], String nom);
+	void piocherCarte(String[] carte, String nom);
 
 	void jouerCarte(String[] carte, String nom, ZoneJeu zoneJeu);
 

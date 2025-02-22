@@ -9,7 +9,7 @@ public class Affichage implements IAffichage {
 	private static final int NB_JOUEUR_MAX = 2;
 
 	@Override
-	public void afficherMessageAccueil() {
+	public void souhaiterBienvenue() {
 		System.out.println("Bienvenue \n");
 	}
 
@@ -39,13 +39,13 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void afficherCarte(String carte[]) {
+	public void afficherCarte(String[] carte) {
 		System.out.println(" \t titre : " + carte[0] + "\n \t vie : " + carte[1] + "\n \t popularite : " + carte[2]
 				+ "\n \t description : " + carte[3] + " \n");
 	}
 
 	@Override
-	public void afficherCartes(String cartes[][]) {
+	public void afficherCartes(String[][] cartes) {
 		System.out.println("---------------------\n");
 		System.out.println("AFFICHAGE DES CARTES : \n");
 		for (int i = 0; i < cartes.length; i++) {
@@ -56,13 +56,13 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void afficherJoueur(String joueur[]) {
+	public void afficherJoueur(String[] joueur) {
 		System.out.println(
 				" \t nom : " + joueur[0] + "\n \t vie : " + joueur[1] + "\n \t popularite : " + joueur[2] + " \n");
 	}
 
 	@Override
-	public void afficherJoueurs(String joueurs[][]) {
+	public void afficherJoueurs(String[][] joueurs) {
 		System.out.println("---------------------\n");
 		System.out.println("AFFICHAGE DES JOUEURS : \n");
 		for (int i = 0; i < NB_JOUEUR_MAX; i++) {
@@ -72,7 +72,7 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void piocherMain(String cartes[][], String nom) {
+	public void piocherMain(String[][] cartes, String nom) {
 		System.out.println(nom + " pioche une main de " + NB_CARTE_MAIN + " cartes \n");
 		for (int i = 0; i < NB_CARTE_MAIN; i++) {
 			piocherCarte(cartes[i], nom);
@@ -81,7 +81,7 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void piocherCarte(String carte[], String nom) {
+	public void piocherCarte(String[] carte, String nom) {
 		System.out.println(nom + " pioche une carte \n");
 		afficherCarte(carte);
 	}
@@ -109,7 +109,7 @@ public class Affichage implements IAffichage {
 			System.out.println(nom + " tu veux jouer qu'elle carte ? \n");
 			System.out.println("Entre un numero de carte pour jouer : ");
 			numCarte = scanner.nextInt();
-		} while (1 < numCarte && numCarte > 5);
+		} while (1 < numCarte && numCarte > NB_CARTE_MAIN+1);
 		return numCarte;
 	}
 
@@ -230,7 +230,7 @@ public class Affichage implements IAffichage {
 		int choixCarte;
 
 		IAffichage affichage = new Affichage();
-		affichage.afficherMessageAccueil();
+		affichage.souhaiterBienvenue();
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
 		affichage.afficherJoueurs(joueurs);
