@@ -113,6 +113,14 @@ public class Affichage implements IAffichage {
 		return numCarte;
 	}
 
+	public static int getNbCarteMain() {
+		return NB_CARTE_MAIN;
+	}
+
+	public static int getNbJoueurMax() {
+		return NB_JOUEUR_MAX;
+	}
+
 	public static void main(String[] args) {
 
 		String[] carte0 = new String[4];
