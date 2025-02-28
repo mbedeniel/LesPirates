@@ -23,27 +23,43 @@ public class Jeu {
 			carteParses = carte.parserCartes(cartes);
 			affichage.piocherMain(carteParses, joueurParses[i][0]);
 		}
-		boolean avoirGagne = false;
+		boolean aucunGagnant = true;
 		String[] carteParse;
 		int choixCarte;
 		ZoneJeu zoneJeu;
-		do {
-			for (int i = 0; i < Affichage.getNbJoueurMax(); i++) {
-				affichage.afficherTour(joueurParses[i][0]);
-				carte = carte.piocherCarte();
-				carteParse = carte.parserCarte();
-				affichage.piocherCarte(carteParse, joueurParses[i][0]);
-				cartes = joueurs[i].recupererCartes();
-				carteParses = carte.parserCartes(cartes);
-				affichage.afficherCartes(carteParses);
-				choixCarte = affichage.choisirCarte(joueurParses[i][0]);
-				choixCarte--;
-				zoneJeu = joueurs[i].jouerCarte(choixCarte);
-				affichage.jouerCarte(carteParses[choixCarte], joueurParses[i][0], zoneJeu);
-				affichage.afficherJoueurs(joueurParses);
-			}
-			avoirGagne = avoirGagnant();
-		} while (!avoirGagne);
+//		do {
+//			for (int i = 0; i < Affichage.getNbJoueurMax(); i++) {
+//				affichage.afficherTour(joueurParses[i][0]);
+//				carte = carte.piocherCarte();
+//				carteParse = carte.parserCarte();
+//				affichage.piocherCarte(carteParse, joueurParses[i][0]);
+//				cartes = joueurs[i].recupererCartes();
+//				carteParses = carte.parserCartes(cartes);
+//				affichage.afficherCartes(carteParses);
+//				choixCarte = affichage.choisirCarte(joueurParses[i][0]);
+//				choixCarte--;
+//				zoneJeu = joueurs[i].jouerCarte(choixCarte);
+//				affichage.jouerCarte(carteParses[choixCarte], joueurParses[i][0], zoneJeu);
+//				affichage.afficherJoueurs(joueurParses);
+//			}
+//			aucunGagnant = avoirGagnant();
+//		} while (aucunGagnant);
+		
+		for(int i=0;aucunGagnant;i=(i+1)%2) {
+			affichage.afficherTour(joueurParses[i][0]);
+			carte = carte.piocherCarte();
+			carteParse = carte.parserCarte();
+			affichage.piocherCarte(carteParse, joueurParses[i][0]);
+			cartes = joueurs[i].recupererCartes();
+			carteParses = carte.parserCartes(cartes);
+			affichage.afficherCartes(carteParses);
+			choixCarte = affichage.choisirCarte(joueurParses[i][0]);
+			choixCarte--;
+			zoneJeu = joueurs[i].jouerCarte(choixCarte);
+			affichage.jouerCarte(carteParses[choixCarte], joueurParses[i][0], zoneJeu);
+			affichage.afficherJoueurs(joueurParses);
+			aucunGagnant = avoirGagnant();
+		}while(aucunGagnant);
 		affichage.afficherGagnant(donnerGagnant());
 	}
 	
