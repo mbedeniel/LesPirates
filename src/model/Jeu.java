@@ -5,24 +5,26 @@ import affichage.IAffichage;
 import affichage.ZoneJeu;
 
 public class Jeu {
+	private static final int NB_CARTE_MAIN = 4;
+	private static final int NB_JOUEUR_MAX = 2;
 	private IAffichage affichage = new Affichage();
-	private Joueur[] joueurs = new Joueur[Affichage.getNbJoueurMax()];
+	private Joueur[] joueurs = new Joueur[NB_JOUEUR_MAX];
 	
 	public void lancerJeux() {
 		affichage.souhaiterBienvenue();
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
 		Joueur[] joueurs = getJoueurs();
-		String[][] joueurParses;
-		for(int i=0;i<Affichage.getNbJoueurMax();i++) {
+		String[][] joueurParses = new String[NB_JOUEUR_MAX][];
+		for(int i=0;i<NB_JOUEUR_MAX;i++) {
 			joueurParses[i] = joueurs[i].parserJoueur();
 		}
 		affichage.afficherJoueurs(joueurParses);
 		Carte carte = new Carte();
 		Carte[] cartes;
 		String[][] carteParses;
-		for (int i = 0; i < Affichage.getNbJoueurMax(); i++) {
-			cartes = carte.piocherCartes(Affichage.getNbCarteMain());
+		for (int i = 0; i <NB_CARTE_MAIN; i++) {
+			cartes = carte.piocherCartes(NB_CARTE_MAIN);
 			carteParses = carte.parserCartes(cartes);
 			affichage.piocherMain(carteParses, joueurParses[i][0]);
 		}
@@ -64,6 +66,14 @@ public class Jeu {
 			aucunGagnant = avoirGagnant();
 		}while(aucunGagnant);
 		affichage.afficherGagnant(donnerGagnant());
+	}
+	
+	public static int getNbCarteMain() {
+		return NB_CARTE_MAIN;
+	}
+
+	public static int getNbJoueurMax() {
+		return NB_JOUEUR_MAX;
 	}
 	
 	public boolean avoirGagnant() {

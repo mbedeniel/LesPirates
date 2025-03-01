@@ -2,11 +2,11 @@ package affichage;
 
 import java.util.Scanner;
 
+import model.Jeu;
+
 public class Affichage implements IAffichage {
 
 	private Scanner scanner = new Scanner(System.in);
-	private static final int NB_CARTE_MAIN = 4;
-	private static final int NB_JOUEUR_MAX = 2;
 
 	@Override
 	public void souhaiterBienvenue() {
@@ -65,7 +65,7 @@ public class Affichage implements IAffichage {
 	public void afficherJoueurs(String[][] joueurs) {
 		System.out.println("---------------------\n");
 		System.out.println("AFFICHAGE DES JOUEURS : \n");
-		for (int i = 0; i < NB_JOUEUR_MAX; i++) {
+		for (int i = 0; i < Jeu.getNbJoueurMax(); i++) {
 			afficherJoueur(joueurs[i]);
 		}
 		System.out.println("---------------------\n");
@@ -73,8 +73,8 @@ public class Affichage implements IAffichage {
 
 	@Override
 	public void piocherMain(String[][] cartes, String nom) {
-		System.out.println(nom + " pioche une main de " + NB_CARTE_MAIN + " cartes \n");
-		for (int i = 0; i < NB_CARTE_MAIN; i++) {
+		System.out.println(nom + " pioche une main de " + Jeu.getNbCarteMain() + " cartes \n");
+		for (int i = 0; i < Jeu.getNbCarteMain(); i++) {
 			piocherCarte(cartes[i], nom);
 		}
 
@@ -109,16 +109,8 @@ public class Affichage implements IAffichage {
 			System.out.println(nom + " tu veux jouer qu'elle carte ? \n");
 			System.out.println("Entre un numero de carte pour jouer : ");
 			numCarte = scanner.nextInt();
-		} while (1 < numCarte && numCarte > NB_CARTE_MAIN+1);
+		} while (1 < numCarte && numCarte > Jeu.getNbCarteMain()+1);
 		return numCarte;
-	}
-
-	public static int getNbCarteMain() {
-		return NB_CARTE_MAIN;
-	}
-
-	public static int getNbJoueurMax() {
-		return NB_JOUEUR_MAX;
 	}
 
 	public static void main(String[] args) {
@@ -208,14 +200,14 @@ public class Affichage implements IAffichage {
 		int lengthCartes = data.length;
 		String[][] cartes = new String[lengthCartes][4];
 		for (int i = 0; i < lengthCartes; i++) {
-			for (int j = 0; j < NB_CARTE_MAIN; j++) {
+			for (int j = 0; j < Jeu.getNbCarteMain(); j++) {
 				cartes[i][j] = data[i][j];
 			}
 		}
 
-		String[][] cartes1 = new String[NB_CARTE_MAIN][4];
-		String[][] cartes2 = new String[NB_CARTE_MAIN][4];
-		for (int i = 0; i < NB_CARTE_MAIN; i++) {
+		String[][] cartes1 = new String[Jeu.getNbCarteMain()][4];
+		String[][] cartes2 = new String[Jeu.getNbCarteMain()][4];
+		for (int i = 0; i < Jeu.getNbCarteMain(); i++) {
 			for (int j = 0; j < 4; j++) {
 				cartes1[i][j] = cartes[i][j];
 				cartes2[i][j] = cartes[lengthCartes - 1 - i][j];
