@@ -6,14 +6,17 @@ import affichage.ZoneJeu;
 
 public class Jeu {
 	private IAffichage affichage = new Affichage();
+	private Joueur[] joueurs = new Joueur[Affichage.getNbJoueurMax()];
 	
 	public void lancerJeux() {
 		affichage.souhaiterBienvenue();
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
-		Joueur joueur = new Joueur();
-		Joueur[] joueurs = joueur.recupererJoueurs();
-		String[][] joueurParses = joueur.parserJoueurs(joueurs);
+		Joueur[] joueurs = getJoueurs();
+		String[][] joueurParses;
+		for(int i=0;i<Affichage.getNbJoueurMax();i++) {
+			joueurParses[i] = joueurs[i].parserJoueur();
+		}
 		affichage.afficherJoueurs(joueurParses);
 		Carte carte = new Carte();
 		Carte[] cartes;
@@ -72,4 +75,10 @@ public class Jeu {
 		//TODO
 		return null;
 	}
+
+	public Joueur[] getJoueurs() {
+		return joueurs;
+	}
+	
+	
 }
