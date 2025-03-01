@@ -14,7 +14,6 @@ public class Jeu {
 		affichage.souhaiterBienvenue();
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
-		Joueur[] joueurs = getJoueurs();
 		String[][] joueurParses = new String[NB_JOUEUR_MAX][];
 		for(int i=0;i<NB_JOUEUR_MAX;i++) {
 			joueurParses[i] = joueurs[i].parserJoueur();
@@ -22,10 +21,12 @@ public class Jeu {
 		affichage.afficherJoueurs(joueurParses);
 		Carte carte = new Carte();
 		Carte[] cartes;
-		String[][] carteParses;
+		String[][] carteParses = new String[NB_CARTE_MAIN][];
 		for (int i = 0; i <NB_CARTE_MAIN; i++) {
 			cartes = carte.piocherCartes(NB_CARTE_MAIN);
-			carteParses = carte.parserCartes(cartes);
+			for(int j=0;j<NB_CARTE_MAIN;j++) {
+				carteParses[j] = cartes[j].parserCarte();
+			}
 			affichage.piocherMain(carteParses, joueurParses[i][0]);
 		}
 		boolean aucunGagnant = true;
@@ -56,7 +57,10 @@ public class Jeu {
 			carteParse = carte.parserCarte();
 			affichage.piocherCarte(carteParse, joueurParses[i][0]);
 			cartes = joueurs[i].recupererCartes();
-			carteParses = carte.parserCartes(cartes);
+			carteParses = new String[NB_CARTE_MAIN+1][];
+			for(int j=0;j<NB_CARTE_MAIN+1;j++) {
+				carteParses[j] = cartes[j].parserCarte();
+			}
 			affichage.afficherCartes(carteParses);
 			choixCarte = affichage.choisirCarte(joueurParses[i][0]);
 			choixCarte--;
@@ -85,10 +89,5 @@ public class Jeu {
 		//TODO
 		return null;
 	}
-
-	public Joueur[] getJoueurs() {
-		return joueurs;
-	}
-	
 	
 }
