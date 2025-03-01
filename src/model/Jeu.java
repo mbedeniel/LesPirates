@@ -14,19 +14,15 @@ public class Jeu {
 		affichage.souhaiterBienvenue();
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
-		String[][] joueurParses = new String[NB_JOUEUR_MAX][];
-		for(int i=0;i<NB_JOUEUR_MAX;i++) {
-			joueurParses[i] = joueurs[i].parserJoueur();
-		}
+		Joueur joueur = new Joueur();
+		String[][] joueurParses = joueur.parserJoueurs(joueurs);
 		affichage.afficherJoueurs(joueurParses);
 		Carte carte = new Carte();
 		Carte[] cartes;
-		String[][] carteParses = new String[NB_CARTE_MAIN][];
-		for (int i = 0; i <NB_CARTE_MAIN; i++) {
+		String[][] carteParses;
+		for (int i = 0; i <NB_JOUEUR_MAX; i++) {
 			cartes = carte.piocherCartes(NB_CARTE_MAIN);
-			for(int j=0;j<NB_CARTE_MAIN;j++) {
-				carteParses[j] = cartes[j].parserCarte();
-			}
+			carteParses = carte.parserCartes(cartes);
 			affichage.piocherMain(carteParses, joueurParses[i][0]);
 		}
 		boolean aucunGagnant = true;

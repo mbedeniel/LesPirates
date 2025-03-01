@@ -11,6 +11,10 @@ public class Joueur {
 		//TODO
 		return null;
 	}
+	public String[][] parserJoueurs(Joueur[] joueurs) {
+		//TODO
+		return null;
+	}
 	public ZoneJeu jouerCarte(int nbCarte) {
 		//TODO
 		return null;

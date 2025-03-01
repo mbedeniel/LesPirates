@@ -13,4 +13,8 @@ public class Carte {
 		//TODO
 		return null;
 	}
+	public String[][] parserCartes(Carte[] cartes) {
+		//TODO
+		return null;
+	}
 }
