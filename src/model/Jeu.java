@@ -31,11 +31,11 @@ public class Jeu {
 		ZoneJeu zoneJeu;
 		int i=0;
 		do {
-			joueur = joueurs[i];
 			affichage.afficherTour(joueurParses[i][0]);
 			carte = carte.piocherCarte();
 			carteParse = carte.parserCarte();
 			affichage.piocherCarte(carteParse, joueurParses[i][0]);
+			joueur = joueurs[i];
 			cartes = joueur.recupererCartes();
 			carteParses = carte.parserCartes(cartes);
 			affichage.afficherCartes(carteParses);
@@ -47,7 +47,8 @@ public class Jeu {
 			i=(i+1)%NB_JOUEUR_MAX;
 			aucunGagnant = avoirGagnant();
 		}while(aucunGagnant);
-		affichage.afficherGagnant(donnerGagnant());
+		String nomGagnant = donnerGagnant();
+		affichage.afficherGagnant(nomGagnant);
 		
 //		do {
 //			for (int i = 0; i < NB_JOUEUR_MAX; i++) {

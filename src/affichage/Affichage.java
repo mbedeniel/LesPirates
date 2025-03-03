@@ -99,7 +99,7 @@ public class Affichage implements IAffichage {
 
 	@Override
 	public void afficherGagnant(String nom) {
-		System.out.println("Felicitation a " + nom + " il a gagne la partie \n");
+		System.out.println("Felicitation a "+nom+" il a gagne la partie ne soit pas jaloue tu gagnera la prochaine foi \n");
 	}
 
 	@Override
