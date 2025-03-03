@@ -31,16 +31,17 @@ public class Jeu {
 		ZoneJeu zoneJeu;
 		int i=0;
 		do {
+			joueur = joueurs[i];
 			affichage.afficherTour(joueurParses[i][0]);
 			carte = carte.piocherCarte();
 			carteParse = carte.parserCarte();
 			affichage.piocherCarte(carteParse, joueurParses[i][0]);
-			cartes = joueurs[i].recupererCartes();
+			cartes = joueur.recupererCartes();
 			carteParses = carte.parserCartes(cartes);
 			affichage.afficherCartes(carteParses);
 			choixCarte = affichage.choisirCarte(joueurParses[i][0]);
 			choixCarte--;
-			zoneJeu = joueurs[i].jouerCarte(choixCarte);
+			zoneJeu = joueur.jouerCarte(choixCarte);
 			affichage.jouerCarte(carteParses[choixCarte], joueurParses[i][0], zoneJeu);
 			affichage.afficherJoueurs(joueurParses);
 			i=(i+1)%NB_JOUEUR_MAX;
