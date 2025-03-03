@@ -49,42 +49,6 @@ public class Jeu {
 		}while(aucunGagnant);
 		String nomGagnant = donnerGagnant();
 		affichage.afficherGagnant(nomGagnant);
-		
-//		do {
-//			for (int i = 0; i < NB_JOUEUR_MAX; i++) {
-//				if(aucunGagnant) {
-//					affichage.afficherTour(joueurParses[i][0]);
-//					carte = carte.piocherCarte();
-//					carteParse = carte.parserCarte();
-//					affichage.piocherCarte(carteParse, joueurParses[i][0]);
-//					cartes = joueurs[i].recupererCartes();
-//					carteParses = carte.parserCartes(cartes);
-//					affichage.afficherCartes(carteParses);
-//					choixCarte = affichage.choisirCarte(joueurParses[i][0]);
-//					choixCarte--;
-//					zoneJeu = joueurs[i].jouerCarte(choixCarte);
-//					affichage.jouerCarte(carteParses[choixCarte], joueurParses[i][0], zoneJeu);
-//					affichage.afficherJoueurs(joueurParses);
-//					aucunGagnant = avoirGagnant();
-//				}
-//			}
-//		} while (aucunGagnant);
-		
-//		for(int i=0;aucunGagnant;i=(i+1)%NB_JOUEUR_MAX) {
-//			affichage.afficherTour(joueurParses[i][0]);
-//			carte = carte.piocherCarte();
-//			carteParse = carte.parserCarte();
-//			affichage.piocherCarte(carteParse, joueurParses[i][0]);
-//			cartes = joueurs[i].recupererCartes();
-//			carteParses = carte.parserCartes(cartes);
-//			affichage.afficherCartes(carteParses);
-//			choixCarte = affichage.choisirCarte(joueurParses[i][0]);
-//			choixCarte--;
-//			zoneJeu = joueurs[i].jouerCarte(choixCarte);
-//			affichage.jouerCarte(carteParses[choixCarte], joueurParses[i][0], zoneJeu);
-//			affichage.afficherJoueurs(joueurParses);
-//			aucunGagnant = avoirGagnant();
-//		}
 	}
 	
 	public static int getNbCarteMain() {
