@@ -3,15 +3,34 @@ package model;
 import affichage.ZoneJeu;
 
 public class Joueur {
-	private String nom;
+	private Nom nom;
 	private int vie;
 	private int popularite;
 	private Main main;
-	public void afficher() {
-		Jeu.getAffichage().afficherJoueur(nom, String.valueOf(vie), String.valueOf(popularite));
+	
+	
+	
+	public Main getMain() {
+		return main;
 	}
 	public void setMain(Main main) {
 		this.main = main;
+	}
+	public Nom getNom() {
+		return nom;
+	}
+	public void afficher() {
+		Jeu.getAffichage().afficherJoueur(nom.toString(), String.valueOf(vie), String.valueOf(popularite));
+	}
+	
+	public void afficherMain() {
+		main.afficher();
+	}
+	public String donnerNom() {
+		return nom.toString();
+	}
+	public boolean ajouterCarte(Carte carte) {
+		return main.ajouterCarte(carte);
 	}
 
 

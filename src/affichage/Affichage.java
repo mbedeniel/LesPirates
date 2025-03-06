@@ -63,7 +63,7 @@ public class Affichage implements IAffichage {
 	public void afficherJoueurs(String[][] joueurs) {
 		System.out.println("---------------------\n");
 		System.out.println("AFFICHAGE DES JOUEURS : \n");
-		for (int i = 0; i < Jeu.getNbJoueurMax(); i++) {
+		for (int i = 0; i < Jeu.getNbJoueur(); i++) {
 			afficherJoueur(joueurs[i]);
 		}
 		System.out.println("---------------------\n");
@@ -71,8 +71,8 @@ public class Affichage implements IAffichage {
 
 	@Override
 	public void piocherMain(String[][] cartes, String nom) {
-		System.out.println(nom + " pioche une main de " + Jeu.getNbCarteMain() + " cartes \n");
-		for (int i = 0; i < Jeu.getNbCarteMain(); i++) {
+		System.out.println(nom + " pioche une main de " + Jeu.getTailleMain() + " cartes \n");
+		for (int i = 0; i < Jeu.getTailleMain(); i++) {
 			piocherCarte(cartes[i], nom);
 		}
 
@@ -107,7 +107,7 @@ public class Affichage implements IAffichage {
 			System.out.println(nom + " tu veux jouer qu'elle carte ? \n");
 			System.out.println("Entre un numero de carte pour jouer : ");
 			numCarte = scanner.nextInt();
-		} while (1 < numCarte && numCarte > Jeu.getNbCarteMain()+1);
+		} while (1 < numCarte && numCarte > Jeu.getTailleMain()+1);
 		return numCarte;
 	}
 
@@ -198,14 +198,14 @@ public class Affichage implements IAffichage {
 		int lengthCartes = data.length;
 		String[][] cartes = new String[lengthCartes][4];
 		for (int i = 0; i < lengthCartes; i++) {
-			for (int j = 0; j < Jeu.getNbCarteMain(); j++) {
+			for (int j = 0; j < Jeu.getTailleMain(); j++) {
 				cartes[i][j] = data[i][j];
 			}
 		}
 
-		String[][] cartes1 = new String[Jeu.getNbCarteMain()][4];
-		String[][] cartes2 = new String[Jeu.getNbCarteMain()][4];
-		for (int i = 0; i < Jeu.getNbCarteMain(); i++) {
+		String[][] cartes1 = new String[Jeu.getTailleMain()][4];
+		String[][] cartes2 = new String[Jeu.getTailleMain()][4];
+		for (int i = 0; i < Jeu.getTailleMain(); i++) {
 			for (int j = 0; j < 4; j++) {
 				cartes1[i][j] = cartes[i][j];
 				cartes2[i][j] = cartes[lengthCartes - 1 - i][j];

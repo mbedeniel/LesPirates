@@ -6,14 +6,20 @@ public abstract class Carte {
 	
 	public abstract void afficher();
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	protected Carte(String titre, String description) {
+		this.titre = titre;
+		this.description = description;
+	}
+
+
+
+
+
+
+
+
+
+
 	public Carte[] piocherCartes(int nbCarte) {
 		//TODO
 		return null;
