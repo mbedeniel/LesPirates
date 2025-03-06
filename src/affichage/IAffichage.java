@@ -8,11 +8,11 @@ public interface IAffichage {
 
 	void presenterJeux();
 
-	void afficherCarte(String[] carte);
+	public void afficherCarte(String titre, String description, String effet);
 
 	void afficherCartes(String[][] cartes);
 
-	void afficherJoueur(String[] joueur);
+	public void afficherJoueur(String nom,String vie, String popularite);
 
 	void afficherJoueurs(String[][] joueurs);
 

@@ -1,6 +1,19 @@
 package model;
 
-public class Carte {
+public abstract class Carte {
+	protected String titre;
+	protected String description;
+	
+	public abstract void afficher();
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Carte[] piocherCartes(int nbCarte) {
 		//TODO
 		return null;

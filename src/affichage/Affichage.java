@@ -39,9 +39,8 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void afficherCarte(String[] carte) {
-		System.out.println(" \t titre : " + carte[0] + "\n \t vie : " + carte[1] + "\n \t popularite : " + carte[2]
-				+ "\n \t description : " + carte[3] + " \n");
+	public void afficherCarte(String titre, String description, String effet) {
+		System.out.println(" \t titre : " + titre + "\n \t effet : " + effet + "\n \t description : " + description + " \n");
 	}
 
 	@Override
@@ -56,9 +55,8 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void afficherJoueur(String[] joueur) {
-		System.out.println(
-				" \t nom : " + joueur[0] + "\n \t vie : " + joueur[1] + "\n \t popularite : " + joueur[2] + " \n");
+	public void afficherJoueur(String nom,String vie, String popularite) {
+		System.out.println(" \t nom : " + nom + "\n \t vie : " + vie + "\n \t popularite : " + popularite + " \n");
 	}
 
 	@Override
