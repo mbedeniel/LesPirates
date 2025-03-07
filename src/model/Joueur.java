@@ -1,12 +1,13 @@
 package model;
 
-import affichage.ZoneJeu;
+import affichage.IAffichage;
 
 public class Joueur {
 	private Nom nom;
 	private int vie;
 	private int popularite;
 	private Main main;
+	private static final IAffichage affichage = Jeu.getAffichage();
 	
 	
 	
@@ -20,7 +21,7 @@ public class Joueur {
 		return nom;
 	}
 	public void afficher() {
-		Jeu.getAffichage().afficherJoueur(nom.toString(), String.valueOf(vie), String.valueOf(popularite));
+		affichage.afficherJoueur(nom.toString(), String.valueOf(vie), String.valueOf(popularite));
 	}
 	
 	public void afficherMain() {
@@ -32,7 +33,9 @@ public class Joueur {
 	public boolean ajouterCarte(Carte carte) {
 		return main.ajouterCarte(carte);
 	}
-
+	public void jouerCarte(int numCarte) {
+		main.retirerCarte(numCarte);
+	}
 
 
 
@@ -50,8 +53,5 @@ public class Joueur {
 		//TODO
 		return null;
 	}
-	public ZoneJeu jouerCarte(int nbCarte) {
-		//TODO
-		return null;
-	}
+	
 }

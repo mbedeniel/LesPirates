@@ -39,18 +39,18 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void afficherCarte(String titre, String description, String effet) {
-		System.out.println(" \t titre : " + titre + "\n \t effet : " + effet + "\n \t description : " + description + " \n");
+	public void afficherCarte(String titre, String description, String effet, int numCarte) {
+		System.out.println("\t numero carte : " + numCarte + " \n \t titre : " + titre + "\n \t effet : " + effet + "\n \t description : " + description + " \n");
 	}
 
 	@Override
-	public void afficherCartes(String[][] cartes) {
+	public void afficherCartes(String titre, String description, String effet, int numCarte) {
 		System.out.println("---------------------\n");
-		System.out.println("AFFICHAGE DES CARTES : \n");
-		for (int i = 0; i < cartes.length; i++) {
-			System.out.println(" \t numero carte : " + (i + 1));
-			afficherCarte(cartes[i]);
+		if(numCarte == 0) {
+			System.out.println("AFFICHAGE DES CARTES : \n");
 		}
+		System.out.println(" \t numero carte : " + numCarte);
+		afficherCarte( titre,  description,  effet);
 		System.out.println("---------------------\n");
 	}
 
@@ -70,24 +70,19 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void piocherMain(String[][] cartes, String nom) {
+	public void piocherMain( String nom) {
 		System.out.println(nom + " pioche une main de " + Jeu.getTailleMain() + " cartes \n");
-		for (int i = 0; i < Jeu.getTailleMain(); i++) {
-			piocherCarte(cartes[i], nom);
-		}
 
 	}
 
 	@Override
-	public void piocherCarte(String[] carte, String nom) {
+	public void piocherCarte(String nom) {
 		System.out.println(nom + " pioche une carte \n");
-		afficherCarte(carte);
 	}
 
 	@Override
-	public void jouerCarte(String[] carte, String nom, ZoneJeu zoneJeu) {
+	public void jouerCarte(String nom, ZoneJeu zoneJeu) {
 		System.out.println(nom + " joue une carte dans la zone " + zoneJeu.toString() + " \n");
-		afficherCarte(carte);
 	}
 
 	@Override

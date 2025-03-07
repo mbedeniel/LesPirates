@@ -1,5 +1,7 @@
 package model;
 
+import affichage.ZoneJeu;
+
 public class CartePopularite extends Carte {
 	private int popularite;
 	
@@ -9,7 +11,12 @@ public class CartePopularite extends Carte {
 	}
 
 	@Override
-	public void afficher() {
-		Jeu.getAffichage().afficherCarte(titre,description, String.valueOf(popularite));
+	public void afficher(int numCarte) {
+		Jeu.getAffichage().afficherCarte(titre,description, String.valueOf(popularite), numCarte);
+	}
+	
+	@Override
+	protected ZoneJeu donnerZone() {
+		return ZoneJeu.POPULARITE;
 	}
 }

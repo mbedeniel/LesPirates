@@ -1,15 +1,18 @@
 package model;
 
 public class Main {
-	private Carte[] cartes = new Carte[Jeu.getTailleMain()];
+	private static final int TAILLE_MAIN = Jeu.getTailleMain();
+	private Carte[] cartes = new Carte[TAILLE_MAIN];
 	
 	public Main(Carte[] cartes) {
 		this.cartes = cartes;
 	}
 
 	public void afficher() {
-		for(int i=0;i<Jeu.getTailleMain();i++) {
-			cartes[i].afficher();
+		for(int i=0;i<cartes.length;i++) {
+			if(cartes[i] != null) {
+				cartes[i].afficher(i+1);
+			}
 		}
 	}
 
@@ -26,5 +29,11 @@ public class Main {
 		}
 		return false;
 	}
-	
+	public void retirerCarte(int numCarte) {
+		cartes[numCarte-1].afficher(TAILLE_MAIN);
+		for(int i=numCarte;i<cartes.length;i++) {
+			cartes[numCarte-1] = cartes[numCarte];
+		}
+		cartes[TAILLE_MAIN] = null;
+	}
 }

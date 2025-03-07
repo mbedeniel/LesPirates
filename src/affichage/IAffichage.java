@@ -8,19 +8,19 @@ public interface IAffichage {
 
 	void presenterJeux();
 
-	public void afficherCarte(String titre, String description, String effet);
+	void afficherCarte(String titre, String description, String effet, int numCarte);
 
-	void afficherCartes(String[][] cartes);
+	void afficherCartes(String titre, String description, String effet, int numCarte);
 
-	public void afficherJoueur(String nom,String vie, String popularite);
+	void afficherJoueur(String nom,String vie, String popularite);
 
 	void afficherJoueurs(String[][] joueurs);
 
-	void piocherMain(String[][] cartes, String nom);
+	void piocherMain(String nom);
 
-	void piocherCarte(String[] carte, String nom);
+	void piocherCarte(String nom);
 
-	void jouerCarte(String[] carte, String nom, ZoneJeu zoneJeu);
+	void jouerCarte(String nom, ZoneJeu zoneJeu);
 
 	void afficherTour(String nom);
 
