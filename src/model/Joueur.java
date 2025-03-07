@@ -20,6 +20,12 @@ public class Joueur {
 	public Nom getNom() {
 		return nom;
 	}
+	public int getVie() {
+		return vie;
+	}
+	public int getPopularite() {
+		return popularite;
+	}
 	public void afficher() {
 		affichage.afficherJoueur(nom.toString(), String.valueOf(vie), String.valueOf(popularite));
 	}

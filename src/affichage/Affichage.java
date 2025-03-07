@@ -102,7 +102,7 @@ public class Affichage implements IAffichage {
 			System.out.println(nom + " tu veux jouer qu'elle carte ? \n");
 			System.out.println("Entre un numero de carte pour jouer : ");
 			numCarte = scanner.nextInt();
-		} while (1 < numCarte && numCarte > Jeu.getTailleMain()+1);
+		} while (numCarte < 1 && numCarte > Jeu.getTailleMain()+1);
 		return numCarte;
 	}
 

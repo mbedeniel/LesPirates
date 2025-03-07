@@ -32,36 +32,36 @@ public class Jeu {
 
 	public void lancerJeux() {
 		initialiser();
-		boolean aucunGagnant = true;
+		gererTour();
+		affichage.afficherGagnant(donnerGagnant());
+	}
+
+	private void gererTour() {
+		for(int i=0;! avoirGagnant();i=(i+1)%NB_JOUEUR) {
+			jouer(joueurs[i]);
+		}
+	}
+
+	private void jouer(Joueur joueur) {
 		boolean carteAjoute;
 		Carte carte;
-		String[] carteParse;
 		int choixCarte;
-		ZoneJeu zoneJeu;
-		int i=0;
-		Joueur joueur;
-		do {
-			joueur = joueurs[i];
-			affichage.afficherTour(joueur.donnerNom());
-			carte = pioche.piocher();
-			carteAjoute = joueur.ajouterCarte(carte);
-			if(carteAjoute) {
-				affichage.piocherCarte(joueur.donnerNom());
-				carte.afficher(TAILLE_MAIN);
-				joueur.afficherMain();
-				choixCarte = affichage.choisirCarte(joueur.donnerNom());
-				joueur.jouerCarte(choixCarte);
-				zoneJeu = carte.donnerZone();
-				affichage.jouerCarte(joueur.donnerNom(), zoneJeu);
-				for(int j = 0; j < NB_JOUEUR;j++) {
-					joueurs[j].afficher();
-				}
-				i=(i+1)%NB_JOUEUR;
-				aucunGagnant = avoirGagnant();
+		affichage.afficherTour(joueur.donnerNom());
+		carte = pioche.piocher();
+		carteAjoute = joueur.ajouterCarte(carte);
+		if(carteAjoute) {
+			affichage.piocherCarte(joueur.donnerNom());
+			carte.afficher(TAILLE_MAIN);
+			joueur.afficherMain();
+			choixCarte = affichage.choisirCarte(joueur.donnerNom());
+			affichage.jouerCarte(joueur.donnerNom(), carte.donnerZone());
+			joueur.jouerCarte(choixCarte);
+			for(int j = 0; j < NB_JOUEUR;j++) {
+				joueurs[j].afficher();
 			}
-		}while(aucunGagnant);
-		String nomGagnant = donnerGagnant();
-		affichage.afficherGagnant(nomGagnant);
+		}else {
+			//TODO
+		}
 	}
 
 	private void initialiser() {
@@ -77,7 +77,11 @@ public class Jeu {
 	}
 
 	public boolean avoirGagnant() {
-		//TODO
+		for(int i=0;i<NB_JOUEUR;i++) {
+			if(joueurs[i].getVie() == 0 || joueurs[i].getPopularite() == 0) {
+				return true;
+			}
+		}
 		return false;
 	}
 	

@@ -21,11 +21,10 @@ public class Main {
 	}
 	
 	public boolean ajouterCarte(Carte carte) {
-		for(int i=0;i<cartes.length;i++) {
-			if(cartes[i]==null) {
-				cartes[i] = carte;
-				return true;
-			}
+		int indice = TAILLE_MAIN-1;
+		if(cartes[indice]==null) {
+			cartes[indice] = carte;
+			return true;
 		}
 		return false;
 	}
