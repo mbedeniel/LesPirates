@@ -10,7 +10,7 @@ public interface IAffichage {
 
 	void afficherCarte(String titre, String description, String effet, int numCarte);
 
-	void afficherJoueur(String nom,String vie, String popularite);
+	void afficherJoueur(String nom, String vie, String popularite);
 
 	void piocherMain(String nom);
 
@@ -23,5 +23,7 @@ public interface IAffichage {
 	void afficherGagnant(String nom);
 
 	int choisirCarte(String nom);
+
+	void afficherProblem();
 
 }

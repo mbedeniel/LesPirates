@@ -9,7 +9,7 @@ public class Main {
 	}
 
 	public void afficher() {
-		for(int i=0;i<cartes.length;i++) {
+		for(int i=0;i<TAILLE_MAIN;i++) {
 			if(cartes[i] != null) {
 				cartes[i].afficher(i+1);
 			}
@@ -29,10 +29,10 @@ public class Main {
 		return false;
 	}
 	public void retirerCarte(int numCarte) {
-		cartes[numCarte-1].afficher(TAILLE_MAIN);
-		for(int i=numCarte;i<cartes.length;i++) {
+		cartes[numCarte-1].afficher(numCarte);
+		for(int i=numCarte;i<TAILLE_MAIN;i++) {
 			cartes[numCarte-1] = cartes[numCarte];
 		}
-		cartes[TAILLE_MAIN] = null;
+		cartes[TAILLE_MAIN-1] = null;
 	}
 }
