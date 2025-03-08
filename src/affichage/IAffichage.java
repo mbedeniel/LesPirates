@@ -10,11 +10,7 @@ public interface IAffichage {
 
 	void afficherCarte(String titre, String description, String effet, int numCarte);
 
-	void afficherCartes(String titre, String description, String effet, int numCarte);
-
 	void afficherJoueur(String nom,String vie, String popularite);
-
-	void afficherJoueurs(String[][] joueurs);
 
 	void piocherMain(String nom);
 

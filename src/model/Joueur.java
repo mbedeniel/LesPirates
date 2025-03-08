@@ -27,7 +27,7 @@ public class Joueur {
 		return popularite;
 	}
 	public void afficher() {
-		affichage.afficherJoueur(nom.toString(), String.valueOf(vie), String.valueOf(popularite));
+		affichage.afficherJoueur(donnerNom(), String.valueOf(vie), String.valueOf(popularite));
 	}
 	
 	public void afficherMain() {
@@ -42,22 +42,4 @@ public class Joueur {
 	public void jouerCarte(int numCarte) {
 		main.retirerCarte(numCarte);
 	}
-
-
-
-
-
-	public Carte[] recupererCartes() {
-		//TODO
-		return null;
-	}
-	public String[] parserJoueur() {
-		//TODO
-		return null;
-	}
-	public String[][] parserJoueurs(Joueur[] joueurs) {
-		//TODO
-		return null;
-	}
-	
 }

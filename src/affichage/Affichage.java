@@ -44,29 +44,8 @@ public class Affichage implements IAffichage {
 	}
 
 	@Override
-	public void afficherCartes(String titre, String description, String effet, int numCarte) {
-		System.out.println("---------------------\n");
-		if(numCarte == 0) {
-			System.out.println("AFFICHAGE DES CARTES : \n");
-		}
-		System.out.println(" \t numero carte : " + numCarte);
-		afficherCarte( titre,  description,  effet);
-		System.out.println("---------------------\n");
-	}
-
-	@Override
 	public void afficherJoueur(String nom,String vie, String popularite) {
 		System.out.println(" \t nom : " + nom + "\n \t vie : " + vie + "\n \t popularite : " + popularite + " \n");
-	}
-
-	@Override
-	public void afficherJoueurs(String[][] joueurs) {
-		System.out.println("---------------------\n");
-		System.out.println("AFFICHAGE DES JOUEURS : \n");
-		for (int i = 0; i < Jeu.getNbJoueur(); i++) {
-			afficherJoueur(joueurs[i]);
-		}
-		System.out.println("---------------------\n");
 	}
 
 	@Override
