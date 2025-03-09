@@ -25,8 +25,16 @@ public class Joueur {
 		return vie;
 	}
 
+	public void setVie(int vie) {
+		this.vie = vie;
+	}
+
 	public int getPopularite() {
 		return popularite;
+	}
+
+	public void setPopularite(int popularite) {
+		this.popularite = popularite;
 	}
 
 	public void afficher() {
@@ -44,8 +52,21 @@ public class Joueur {
 	public boolean ajouterCarte(Carte carte) {
 		return main.ajouterCarte(carte);
 	}
-
-	public void jouerCarte(int numCarte) {
-		main.retirerCarte(numCarte);
+	
+	public void jouerCarteAttaque(Joueur adversaire, int numCarte) {
+		CarteAttaque carteAttaque = (CarteAttaque)main.retirerCarte(numCarte);
+		carteAttaque.afficher(numCarte);
+		int vie = adversaire.vie - carteAttaque.getVie();
+		if(vie < 0) {
+			vie = 0;
+		}
+		adversaire.setVie(vie);
 	}
+
+	public void jouerCartePopularite(int numCarte) {
+		CartePopularite cartePopularite = (CartePopularite)main.retirerCarte(numCarte);
+		cartePopularite.afficher(numCarte);
+		setPopularite(popularite + cartePopularite.getPopularite());
+	}
+		
 }

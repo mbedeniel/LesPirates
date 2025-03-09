@@ -7,6 +7,11 @@ public class CarteAttaque extends Carte {
 	private int vie;
 	private static final IAffichage affichage = Jeu.getAffichage();
 	
+	
+	public int getVie() {
+		return vie;
+	}
+
 	public CarteAttaque(String titre, String description, int vie) {
 		super(titre, description);
 		this.vie = vie;

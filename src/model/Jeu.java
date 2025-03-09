@@ -2,6 +2,7 @@ package model;
 
 import affichage.Affichage;
 import affichage.IAffichage;
+import affichage.ZoneJeu;
 
 public class Jeu {
 	private static final int TAILLE_MAIN = 5;
@@ -35,43 +36,58 @@ public class Jeu {
 	private void gererJeu() {
 		boolean avoirProblem = true;
 		for (int i = 0; !avoirGagnant(); i = (i + 1) % NB_JOUEUR) {
-			avoirProblem = jouer(joueurs[i]);
+			avoirProblem = jouer(joueurs[i], joueurs[(i + 1) % NB_JOUEUR]);
 		}
-		if (!avoirProblem) {
+		if (avoirProblem) {
 			affichage.afficherProblem();
 		} else {
 			affichage.afficherGagnant(donnerGagnant());
 		}
 	}
 
-	private boolean jouer(Joueur joueur) {
+	private boolean jouer(Joueur joueur, Joueur adversaire) {
 		boolean carteAjoute;
 		Carte carte;
 		int choixCarte;
 		affichage.afficherTour(joueur.donnerNom());
 		carte = pioche.piocher();
+		ZoneJeu zoneJeu;
 		carteAjoute = joueur.ajouterCarte(carte);
 		if (carteAjoute) {
 			affichage.piocherCarte(joueur.donnerNom());
 			carte.afficher(TAILLE_MAIN);
 			joueur.afficherMain();
 			choixCarte = affichage.choisirCarte(joueur.donnerNom());
-			affichage.jouerCarte(joueur.donnerNom(), carte.donnerZone());
-			joueur.jouerCarte(choixCarte);
-			for (int j = 0; j < NB_JOUEUR; j++) {
-				joueurs[j].afficher();
+			zoneJeu = carte.donnerZone();
+			affichage.jouerCarte(joueur.donnerNom(), zoneJeu);
+			switch (zoneJeu) {
+				case ATTAQUE: {
+					joueur.jouerCarteAttaque(adversaire, choixCarte);
+					break;
+				}
+				case POPULARITE: {
+					joueur.jouerCartePopularite(choixCarte);
+					break;
+				}
 			}
+			afficherJoueur();
 			return false;
 		}
 		return true;
+	}
+
+	private void afficherJoueur() {
+		for (int j = 0; j < NB_JOUEUR; j++) {
+			joueurs[j].afficher();
+		}
 	}
 
 	private void initialiser() {
 		affichage.souhaiterBienvenue();
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
+		afficherJoueur();
 		for (int i = 0; i < NB_JOUEUR; i++) {
-			joueurs[i].afficher();
 			affichage.piocherMain(joueurs[i].donnerNom());
 			joueurs[i].setMain(pioche.piocherMain());
 			joueurs[i].afficherMain();
@@ -80,7 +96,7 @@ public class Jeu {
 
 	public boolean avoirGagnant() {
 		for (int i = 0; i < NB_JOUEUR; i++) {
-			if (joueurs[i].getVie() == 0 || joueurs[i].getPopularite() == 0) {
+			if (joueurs[i].getVie() == 0 || joueurs[i].getPopularite() == 5) {
 				return true;
 			}
 		}
@@ -89,8 +105,11 @@ public class Jeu {
 
 	public String donnerGagnant() {
 		for (int i = 0; i < NB_JOUEUR; i++) {
-			if (joueurs[i].getVie() == 0 || joueurs[i].getPopularite() == 0) {
-				return joueurs[i + 1].donnerNom();
+			if (joueurs[i].getVie() == 0) {
+				return joueurs[(i + 1)%NB_JOUEUR].donnerNom();
+			}
+			if(joueurs[i].getPopularite() == 5) {
+				return joueurs[i].donnerNom();
 			}
 		}
 		return null;

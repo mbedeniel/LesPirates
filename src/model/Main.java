@@ -28,11 +28,12 @@ public class Main {
 		}
 		return false;
 	}
-	public void retirerCarte(int numCarte) {
-		cartes[numCarte-1].afficher(numCarte);
+	public Carte retirerCarte(int numCarte) {
+		Carte carte = cartes[numCarte-1];
 		for(int i=numCarte;i<TAILLE_MAIN;i++) {
 			cartes[numCarte-1] = cartes[numCarte];
 		}
 		cartes[TAILLE_MAIN-1] = null;
+		return carte;
 	}
 }
