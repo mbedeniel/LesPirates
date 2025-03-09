@@ -27,5 +27,7 @@ public interface IAffichage {
 	void afficherProblem();
 	
 	void afficherJoueurs();
+	 
+	void afficherCartes(String nom);
 
 }

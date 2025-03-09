@@ -29,9 +29,9 @@ public class Pioche {
 	}
 
 	public Main piocherMain() {
-		int nbCarteMain = Main.getTailleMain() - 1;
+		int nbCarteMain = Main.getTailleMain();
 		Carte[] cartes = new Carte[nbCarteMain];
-		for (int i = 0; i < nbCarteMain; i++) {
+		for (int i = 0; i < nbCarteMain-1; i++) {
 			cartes[i] = piocher();
 		}
 		return new Main(cartes);

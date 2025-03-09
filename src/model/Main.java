@@ -15,7 +15,6 @@ public class Main {
 
 	public void afficher() {
 		for(int i=0;i<TAILLE_MAIN && cartes[i] != null;i++) {
-			System.out.println("TRACE : "+i);
 			cartes[i].afficher(i+1);
 		}
 	}

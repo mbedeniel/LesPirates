@@ -46,6 +46,7 @@ public class Joueur {
 	}
 
 	public void afficherMain() {
+		affichage.afficherCartes(donnerNom());
 		main.afficher();
 	}
 

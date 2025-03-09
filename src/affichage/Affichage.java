@@ -45,6 +45,11 @@ public class Affichage implements IAffichage {
 		System.out.println("\t numero carte : " + numCarte + " \n \t titre : " + titre + "\n \t effet : " + effet
 				+ "\n \t description : " + description + " \n");
 	}
+	
+	@Override
+	public void afficherCartes(String nom) {
+		System.out.println("AFFICHAGE DES CARTES DE " +nom+ "\n");
+	}
 
 	@Override
 	public void afficherJoueur(String nom, String vie, String popularite) {
