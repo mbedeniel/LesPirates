@@ -4,10 +4,14 @@ import affichage.IAffichage;
 
 public class Joueur {
 	private Nom nom;
-	private int vie;
-	private int popularite;
+	private int vie = 5;
+	private int popularite = 0;
 	private Main main;
 	private static final IAffichage affichage = Jeu.getAffichage();
+	
+	public Joueur(Nom nom) {
+		this.nom = nom;
+	}
 
 	public Main getMain() {
 		return main;

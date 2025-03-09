@@ -4,7 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 public class Pioche {
-	private static final int TAILLE_PIOCHE = Jeu.getTaillePioche();
+	private static final int TAILLE_PIOCHE = 15;
 	private Carte[] cartes = new Carte[TAILLE_PIOCHE];
 	private int nbCarte = TAILLE_PIOCHE;
 	private static SecureRandom random;
@@ -29,7 +29,7 @@ public class Pioche {
 	}
 
 	public Main piocherMain() {
-		int nbCarteMain = Jeu.getTailleMain() - 1;
+		int nbCarteMain = Main.getTailleMain() - 1;
 		Carte[] cartes = new Carte[nbCarteMain];
 		for (int i = 0; i < nbCarteMain; i++) {
 			cartes[i] = piocher();

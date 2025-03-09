@@ -5,27 +5,17 @@ import affichage.IAffichage;
 import affichage.ZoneJeu;
 
 public class Jeu {
-	private static final int TAILLE_MAIN = 5;
 	private static final int NB_JOUEUR = 2;
-	private static final int TAILLE_PIOCHE = 15;
 	private static IAffichage affichage = new Affichage();
-	private Joueur[] joueurs = new Joueur[NB_JOUEUR];
+	private Joueur[] joueurs = {new Joueur(Nom.BILL),new Joueur(Nom.JACK)};
 	private Pioche pioche = new Pioche();
 
 	public static IAffichage getAffichage() {
 		return affichage;
 	}
-
-	public static int getTailleMain() {
-		return TAILLE_MAIN;
-	}
-
+	
 	public static int getNbJoueur() {
 		return NB_JOUEUR;
-	}
-
-	public static int getTaillePioche() {
-		return TAILLE_PIOCHE;
 	}
 
 	public void lancerJeux() {
@@ -55,7 +45,7 @@ public class Jeu {
 		carteAjoute = joueur.ajouterCarte(carte);
 		if (carteAjoute) {
 			affichage.piocherCarte(joueur.donnerNom());
-			carte.afficher(TAILLE_MAIN);
+			carte.afficher(Main.getTailleMain());
 			joueur.afficherMain();
 			choixCarte = affichage.choisirCarte(joueur.donnerNom());
 			zoneJeu = carte.donnerZone();
@@ -77,6 +67,7 @@ public class Jeu {
 	}
 
 	private void afficherJoueur() {
+		affichage.afficherJoueurs();
 		for (int j = 0; j < NB_JOUEUR; j++) {
 			joueurs[j].afficher();
 		}
@@ -113,6 +104,11 @@ public class Jeu {
 			}
 		}
 		return null;
+	}
+	
+	public static void main(String[] args) {
+		Jeu jeu = new Jeu();
+		jeu.lancerJeux();
 	}
 
 }

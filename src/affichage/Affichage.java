@@ -3,6 +3,7 @@ package affichage;
 import java.util.Scanner;
 
 import model.Jeu;
+import model.Main;
 
 public class Affichage implements IAffichage {
 
@@ -10,32 +11,33 @@ public class Affichage implements IAffichage {
 
 	@Override
 	public void souhaiterBienvenue() {
-		System.out.println("Bienvenue \n");
+		System.out.println("PRESENTATION ET REGLES DU JEU  \n");
+		System.out.println("\t Bienvenue \n");
 	}
 
 	@Override
 	public void raconterHistoire() {
-		System.out.println("Jack le Borgne et Bill Jambe-de-Bois sont deux pirates souhaitant prendre le \n"
-				+ "commandement du navire à l’etendard noir, « Le Sanguinaire ». L’equipage doit donc les \n"
-				+ "departager par un vote. Chacun des deux rivaux doit ainsi gagner en popularite (ou \n"
-				+ "affaiblir son adversaire) afin de devenir le nouveau capitaine. \n");
+		System.out.println("\t Jack le Borgne et Bill Jambe-de-Bois sont deux pirates souhaitant prendre le \n"
+				+ "\t commandement du navire à l’etendard noir, « Le Sanguinaire ». L’equipage doit donc les \n"
+				+ "\t departager par un vote. Chacun des deux rivaux doit ainsi gagner en popularite (ou \n"
+				+ "\t affaiblir son adversaire) afin de devenir le nouveau capitaine. \n");
 	}
 
 	@Override
 	public void presenterJeux() {
 		System.out.println(
-				"Le Jeu des Pirates est un jeu de societe de cartes dans lequel deux joueurs \n" + "s’affrontent. \n"
-						+ "-Chaque joueur pioche quatre cartes. A tour de role, un pirate pioche une nouvelle \n"
-						+ "carte et l’ajoute à sa main. Il doit ensuite decider s’il attaque son adversaire ou s’il \n"
-						+ "s’attribue des points de popularite. \n"
-						+ "-Chaque pirate possede cinq cœurs rouges correspondant a ses points de vie. S’il n’a \n"
-						+ "plus de coeur, alors il a perdu et son adversaire gagne. \n"
-						+ "-Le but du jeu est que son pirate atteigne cinq points de popularite ou simplement \n"
-						+ "survive plus longtemps que son adversaire ! \n"
-						+ "-Au debut de son tour, le pirate pioche une carte et l’ajoute à sa main. \n"
-						+ "Il choisit ensuite parmi sa main, composee de cinq cartes, une carte qu’il depose : \n"
-						+ "\t -Dans sa zone de popularite s’il s’agit d’une carte de popularite, \n"
-						+ "\t -Dans la zone de son adversaire s’il s’agit d’une carte d’attaque. \n");
+				"\t Le Jeu des Pirates est un jeu de societe de cartes dans lequel deux joueurs s’affrontent. \n"
+						+ "\t -Chaque joueur pioche quatre cartes. A tour de role, un pirate pioche une nouvelle \n"
+						+ "\t carte et l’ajoute à sa main. Il doit ensuite decider s’il attaque son adversaire ou s’il \n"
+						+ "\t s’attribue des points de popularite. \n"
+						+ "\t -Chaque pirate possede cinq cœurs rouges correspondant a ses points de vie. S’il n’a \n"
+						+ "\t plus de coeur, alors il a perdu et son adversaire gagne. \n"
+						+ "\t -Le but du jeu est que son pirate atteigne cinq points de popularite ou simplement \n"
+						+ "\t survive plus longtemps que son adversaire ! \n"
+						+ "\t -Au debut de son tour, le pirate pioche une carte et l’ajoute à sa main. \n"
+						+ "\t Il choisit ensuite parmi sa main, composee de cinq cartes, une carte qu’il depose : \n"
+						+ "\t \t -Dans sa zone de popularite s’il s’agit d’une carte de popularite, \n"
+						+ "\t \t -Dans la zone de son adversaire s’il s’agit d’une carte d’attaque. \n");
 	}
 
 	@Override
@@ -48,10 +50,15 @@ public class Affichage implements IAffichage {
 	public void afficherJoueur(String nom, String vie, String popularite) {
 		System.out.println(" \t nom : " + nom + "\n \t vie : " + vie + "\n \t popularite : " + popularite + " \n");
 	}
+	
+	@Override
+	public void afficherJoueurs() {
+		System.out.println("AFFICHAGE DES JOUEURS  \n");
+	}
 
 	@Override
 	public void piocherMain(String nom) {
-		System.out.println(nom + " pioche une main de " + Jeu.getTailleMain() + " cartes \n");
+		System.out.println(nom + " pioche une main de " + (Main.getTailleMain() - 1) + " cartes \n");
 
 	}
 
@@ -83,7 +90,7 @@ public class Affichage implements IAffichage {
 			System.out.println(nom + " tu veux jouer qu'elle carte ? \n");
 			System.out.println("Entre un numero de carte pour jouer : ");
 			numCarte = scanner.nextInt();
-		} while (numCarte < 1 && numCarte > Jeu.getTailleMain() + 1);
+		} while (numCarte < 1 && numCarte > Main.getTailleMain() + 1);
 		return numCarte;
 	}
 

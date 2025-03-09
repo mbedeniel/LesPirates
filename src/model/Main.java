@@ -1,18 +1,22 @@
 package model;
 
 public class Main {
-	private static final int TAILLE_MAIN = Jeu.getTailleMain();
+	private static final int TAILLE_MAIN = 5;
 	private Carte[] cartes = new Carte[TAILLE_MAIN];
 	
 	public Main(Carte[] cartes) {
 		this.cartes = cartes;
 	}
 
+	public static int getTailleMain() {
+		return TAILLE_MAIN;
+	}
+
+
 	public void afficher() {
-		for(int i=0;i<TAILLE_MAIN;i++) {
-			if(cartes[i] != null) {
-				cartes[i].afficher(i+1);
-			}
+		for(int i=0;i<TAILLE_MAIN && cartes[i] != null;i++) {
+			System.out.println("TRACE : "+i);
+			cartes[i].afficher(i+1);
 		}
 	}
 

@@ -7,8 +7,6 @@ public class CartePopularite extends Carte {
 	private int popularite;
 	private static final IAffichage affichage = Jeu.getAffichage();
 	
-	
-	
 	public int getPopularite() {
 		return popularite;
 	}
