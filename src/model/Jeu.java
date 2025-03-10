@@ -7,13 +7,13 @@ import affichage.ZoneJeu;
 public class Jeu {
 	private static final int NB_JOUEUR = 2;
 	private static IAffichage affichage = new Affichage();
-	private Joueur[] joueurs = {new Joueur(Nom.BILL),new Joueur(Nom.JACK)};
+	private Joueur[] joueurs = { new Joueur(Nom.BILL), new Joueur(Nom.JACK) };
 	private Pioche pioche = new Pioche();
 
 	public static IAffichage getAffichage() {
 		return affichage;
 	}
-	
+
 	public static int getNbJoueur() {
 		return NB_JOUEUR;
 	}
@@ -47,18 +47,28 @@ public class Jeu {
 			affichage.piocherCarte(joueur.donnerNom());
 			carte.afficher(Main.getTailleMain());
 			joueur.afficherMain();
-			choixCarte = affichage.choisirCarte(joueur.donnerNom());
+			choixCarte = affichage.choisirCarte(joueur.donnerNom(), Main.getTailleMain());
 			zoneJeu = carte.donnerZone();
 			affichage.jouerCarte(joueur.donnerNom(), zoneJeu);
 			switch (zoneJeu) {
-				case ATTAQUE: {
-					joueur.jouerCarteAttaque(adversaire, choixCarte);
-					break;
+			case ATTAQUE: {
+				joueur.jouerAttaque(adversaire, choixCarte);
+				break;
+			}
+			case POPULARITE: {
+				joueur.jouerPopularite(choixCarte);
+				break;
+			}
+			case SPECIAL: {
+				if (carte instanceof CarteDiffamation) {
+					joueur.jouerDiffamation(adversaire, choixCarte);
+				} else if (carte instanceof CarteSoin) {
+					joueur.jouerSoin(choixCarte);
+				} else {
+					joueur.jouerFinal(adversaire, choixCarte);
 				}
-				case POPULARITE: {
-					joueur.jouerCartePopularite(choixCarte);
-					break;
-				}
+				break;
+			}
 			}
 			afficherJoueur();
 			return false;
@@ -79,7 +89,7 @@ public class Jeu {
 		affichage.presenterJeux();
 		afficherJoueur();
 		for (int i = 0; i < NB_JOUEUR; i++) {
-			affichage.piocherMain(joueurs[i].donnerNom());
+			affichage.piocherMain(joueurs[i].donnerNom(), Main.getTailleMain() - 1);
 			joueurs[i].setMain(pioche.piocherMain());
 			joueurs[i].afficherMain();
 		}
@@ -97,15 +107,15 @@ public class Jeu {
 	public String donnerGagnant() {
 		for (int i = 0; i < NB_JOUEUR; i++) {
 			if (joueurs[i].getVie() == 0) {
-				return joueurs[(i + 1)%NB_JOUEUR].donnerNom();
+				return joueurs[(i + 1) % NB_JOUEUR].donnerNom();
 			}
-			if(joueurs[i].getPopularite() == 5) {
+			if (joueurs[i].getPopularite() == 5) {
 				return joueurs[i].donnerNom();
 			}
 		}
 		return null;
 	}
-	
+
 	public static void main(String[] args) {
 		Jeu jeu = new Jeu();
 		jeu.lancerJeux();

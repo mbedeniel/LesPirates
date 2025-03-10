@@ -8,8 +8,11 @@ public class Pioche {
 	private Carte[] cartes = new Carte[TAILLE_PIOCHE];
 	private int nbCarte = TAILLE_PIOCHE;
 	private static SecureRandom random;
-	private static Carte[] touteCartes = {new CarteAttaque("A", "description", 0),new CarteAttaque("A", "description", 0),new CartePopularite("P", "descrition", 2)};
-
+	private static  Carte[] touteCartes = {new CartePopularite("B", "description", 2),new CarteAttaque("A", "description", 2),new CarteAttaque("B", "description", 6),new CartePopularite("C", "descrition", 2)};
+	private static final CarteSpecial[] CARTE_SPECIALS = {new CarteDiffamation("Rebellion", -1),new CarteDiffamation("Blaspheme", -2),new CarteSoin("Grog", 1),new CarteSoin("Bandages", 2), new CarteFinal("Scorbut")};
+	private static final CarteAttaque[] CARTE_ATTAQUES = {};
+	private static final CartePopularite[] CARTE_POPULARITES = {};
+	
 	public Pioche() {
 		try {
 			random = SecureRandom.getInstanceStrong();

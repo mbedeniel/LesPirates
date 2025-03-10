@@ -1,7 +1,7 @@
 package affichage;
 
 public enum ZoneJeu {
-	ATTAQUE("ATTAQUE"),POPULARITE("POPULARITE");
+	ATTAQUE("ATTAQUE"),POPULARITE("POPULARITE"),SPECIAL("SPECIAL");
 	
 	private String nom;
 	

@@ -8,11 +8,11 @@ public interface IAffichage {
 
 	void presenterJeux();
 
-	void afficherCarte(String titre, String description, String effet, int numCarte);
+	void afficherCarte(String titre, String description, int effet, int numCarte);
 
-	void afficherJoueur(String nom, String vie, String popularite);
+	void afficherJoueur(String nom, int vie, int popularite);
 
-	void piocherMain(String nom);
+	void piocherMain(String nom, int nbCarte);
 
 	void piocherCarte(String nom);
 
@@ -22,12 +22,14 @@ public interface IAffichage {
 
 	void afficherGagnant(String nom);
 
-	int choisirCarte(String nom);
+	int choisirCarte(String nom, int nbMaxCarte);
 
 	void afficherProblem();
-	
+
 	void afficherJoueurs();
-	 
+
 	void afficherCartes(String nom);
+
+	void afficherCarteSpecial(String titre, String description, int numCarte);
 
 }

@@ -1,14 +1,14 @@
 package model;
 
 import affichage.IAffichage;
-import affichage.ZoneJeu;
 
-public class CarteAttaque extends Carte {
-	private int vie;
+public class CarteSoin extends CarteSpecial {
+
 	private static final IAffichage affichage = Jeu.getAffichage();
+	private int vie;
 
-	public CarteAttaque(String titre, String description, int vie) {
-		super(titre, description);
+	public CarteSoin(String titre, int vie) {
+		super(titre, "rajoute de la vie au joueur");
 		this.vie = vie;
 	}
 
@@ -21,8 +21,4 @@ public class CarteAttaque extends Carte {
 		affichage.afficherCarte(titre, description, vie, numCarte);
 	}
 
-	@Override
-	protected ZoneJeu donnerZone() {
-		return ZoneJeu.ATTAQUE;
-	}
 }

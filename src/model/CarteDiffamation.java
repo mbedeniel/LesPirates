@@ -1,14 +1,14 @@
 package model;
 
 import affichage.IAffichage;
-import affichage.ZoneJeu;
 
-public class CartePopularite extends Carte {
+public class CarteDiffamation extends CarteSpecial {
+
 	private int popularite;
 	private static final IAffichage affichage = Jeu.getAffichage();
 
-	public CartePopularite(String titre, String description, int popularite) {
-		super(titre, description);
+	public CarteDiffamation(String titre, int popularite) {
+		super(titre, "retire des points de popularite a l’adversaire");
 		this.popularite = popularite;
 	}
 
@@ -21,8 +21,4 @@ public class CartePopularite extends Carte {
 		affichage.afficherCarte(titre, description, popularite, numCarte);
 	}
 
-	@Override
-	protected ZoneJeu donnerZone() {
-		return ZoneJeu.POPULARITE;
-	}
 }
