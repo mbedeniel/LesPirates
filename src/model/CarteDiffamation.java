@@ -5,7 +5,7 @@ import affichage.IAffichage;
 public class CarteDiffamation extends CarteSpecial {
 
 	private int popularite;
-	private static final IAffichage affichage = Jeu.getAffichage();
+	private static IAffichage affichage = Jeu.getAffichage();
 
 	public CarteDiffamation(String titre, int popularite) {
 		super(titre, "retire des points de popularite a l’adversaire");

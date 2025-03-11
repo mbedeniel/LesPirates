@@ -4,7 +4,7 @@ import affichage.IAffichage;
 
 public class CarteSoin extends CarteSpecial {
 
-	private static final IAffichage affichage = Jeu.getAffichage();
+	private static IAffichage affichage = Jeu.getAffichage();
 	private int vie;
 
 	public CarteSoin(String titre, int vie) {

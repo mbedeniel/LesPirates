@@ -5,7 +5,7 @@ import affichage.ZoneJeu;
 
 public class CartePopularite extends Carte {
 	private int popularite;
-	private static final IAffichage affichage = Jeu.getAffichage();
+	private static IAffichage affichage = Jeu.getAffichage();
 
 	public CartePopularite(String titre, String description, int popularite) {
 		super(titre, description);

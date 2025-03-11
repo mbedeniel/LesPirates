@@ -5,7 +5,7 @@ import affichage.ZoneJeu;
 
 public class CarteAttaque extends Carte {
 	private int vie;
-	private static final IAffichage affichage = Jeu.getAffichage();
+	private static IAffichage affichage = Jeu.getAffichage();
 
 	public CarteAttaque(String titre, String description, int vie) {
 		super(titre, description);
