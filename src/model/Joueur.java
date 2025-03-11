@@ -49,9 +49,13 @@ public class Joueur {
 	public boolean ajouterCarte(Carte carte) {
 		return main.ajouterCarte(carte);
 	}
+	
+	public Carte recupererCarte(int numCarte) {
+		return main.retirerCarte(numCarte);
+	}
 
-	public void jouerAttaque(Joueur adversaire, int numCarte) {
-		CarteAttaque carteAttaque = (CarteAttaque) main.retirerCarte(numCarte);
+	public void jouerAttaque(Joueur adversaire, Carte carteJoue, int numCarte) {
+		CarteAttaque carteAttaque = (CarteAttaque) carteJoue;
 		carteAttaque.afficher(numCarte);
 		int nouvelVie = adversaire.vie + carteAttaque.getVie();
 		if (nouvelVie < 0) {
@@ -60,8 +64,8 @@ public class Joueur {
 		adversaire.vie = nouvelVie;
 	}
 
-	public void jouerPopularite(int numCarte) {
-		CartePopularite cartePopularite = (CartePopularite) main.retirerCarte(numCarte);
+	public void jouerPopularite(Carte carteJoue, int numCarte) {
+		CartePopularite cartePopularite = (CartePopularite) carteJoue;
 		cartePopularite.afficher(numCarte);
 		int nouvelPopularite = popularite + cartePopularite.getPopularite();
 		if (nouvelPopularite > 5) {
@@ -70,8 +74,8 @@ public class Joueur {
 		popularite = nouvelPopularite;
 	}
 
-	public void jouerSoin(int numCarte) {
-		CarteSoin carteSoin = (CarteSoin) main.retirerCarte(numCarte);
+	public void jouerSoin(Carte carteJoue, int numCarte) {
+		CarteSoin carteSoin = (CarteSoin) carteJoue;
 		carteSoin.afficher(numCarte);
 		int nouvelVie = vie + carteSoin.getVie();
 		if (nouvelVie > 5) {
@@ -80,8 +84,8 @@ public class Joueur {
 		vie = nouvelVie;
 	}
 
-	public void jouerDiffamation(Joueur adversaire, int numCarte) {
-		CarteDiffamation carteDiffamation = (CarteDiffamation) main.retirerCarte(numCarte);
+	public void jouerDiffamation(Joueur adversaire, Carte carteJoue, int numCarte) {
+		CarteDiffamation carteDiffamation = (CarteDiffamation) carteJoue;
 		carteDiffamation.afficher(numCarte);
 		int nouvelPopularite = adversaire.popularite + carteDiffamation.getPopularite();
 		if (nouvelPopularite < 0) {
@@ -91,8 +95,8 @@ public class Joueur {
 
 	}
 
-	public void jouerFinal(Joueur adversaire, int numCarte) {
-		CarteFinal carteFinal = (CarteFinal) main.retirerCarte(numCarte);
+	public void jouerFinal(Joueur adversaire, Carte carteJoue, int numCarte) {
+		CarteFinal carteFinal = (CarteFinal) carteJoue;
 		carteFinal.afficher(numCarte);
 		adversaire.vie = 0;
 	}

@@ -40,46 +40,47 @@ public class Jeu {
 	private boolean jouer(Joueur joueur, Joueur adversaire) {
 		boolean carteAjoute;
 		affichage.afficherTour(joueur.donnerNom());
-		Carte carte = pioche.piocher();
-		carteAjoute = joueur.ajouterCarte(carte);
+		Carte cartePioche = pioche.piocher();
+		carteAjoute = joueur.ajouterCarte(cartePioche);
 		if (carteAjoute) {
 			affichage.piocherCarte(joueur.donnerNom());
-			carte.afficher(Main.getTailleMain());
+			cartePioche.afficher(Main.getTailleMain());
 			joueur.afficherMain();
-			jouerCarte(joueur, adversaire, carte);
+			jouerCarte(joueur, adversaire);
 			afficherJoueur();
 			return false;
 		}
 		return true;
 	}
 
-	private void jouerCarte(Joueur joueur, Joueur adversaire, Carte carte) {
+	private void jouerCarte(Joueur joueur, Joueur adversaire) {
 		int choixCarte = affichage.choisirCarte(joueur.donnerNom(), Main.getTailleMain());
-		ZoneJeu zoneJeu = carte.donnerZone();
+		Carte carteJoue = joueur.recupererCarte(choixCarte);
+		ZoneJeu zoneJeu = carteJoue.donnerZone();
 		affichage.jouerCarte(joueur.donnerNom(), zoneJeu);
 		switch (zoneJeu) {
 		case ATTAQUE: {
-			joueur.jouerAttaque(adversaire, choixCarte);
+			joueur.jouerAttaque(adversaire, carteJoue, choixCarte);
 			break;
 		}
 		case POPULARITE: {
-			joueur.jouerPopularite(choixCarte);
+			joueur.jouerPopularite(carteJoue, choixCarte);
 			break;
 		}
 		case SPECIAL: {
-			jouerSpecial(joueur, adversaire, carte, choixCarte);
+			jouerSpecial(joueur, adversaire, carteJoue, choixCarte);
 			break;
 		}
 		}
 	}
 
-	private void jouerSpecial(Joueur joueur, Joueur adversaire, Carte carte, int choixCarte) {
-		if (carte instanceof CarteDiffamation) {
-			joueur.jouerDiffamation(adversaire, choixCarte);
-		} else if (carte instanceof CarteSoin) {
-			joueur.jouerSoin(choixCarte);
+	private void jouerSpecial(Joueur joueur, Joueur adversaire, Carte carteJoue, int choixCarte) {
+		if (carteJoue instanceof CarteDiffamation) {
+			joueur.jouerDiffamation(adversaire, carteJoue, choixCarte);
+		} else if (carteJoue instanceof CarteSoin) {
+			joueur.jouerSoin(carteJoue, choixCarte);
 		} else {
-			joueur.jouerFinal(adversaire, choixCarte);
+			joueur.jouerFinal(adversaire, carteJoue, choixCarte);
 		}
 	}
 
