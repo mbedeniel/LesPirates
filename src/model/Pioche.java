@@ -45,7 +45,8 @@ public class Pioche {
 		if (cartes[0] == null) {
 			renouvelerPioche();
 		}
-		return retirerCarte(random.nextInt(0, nbCarte - 1));
+		nbCarte--;
+		return retirerCarte(random.nextInt(0, nbCarte));
 	}
 
 	public Main piocherMain() {
@@ -62,8 +63,7 @@ public class Pioche {
 		for (int i = indice; i < cartes.length - 1; i++) {
 			cartes[indice] = cartes[indice + 1];
 		}
-		cartes[nbCarte - 1] = null;
-		nbCarte--;
+		cartes[nbCarte] = null;
 		return carte;
 	}
 
