@@ -39,9 +39,8 @@ public class Jeu {
 
 	private boolean jouer(Joueur joueur, Joueur adversaire) {
 		boolean carteAjoute;
-		Carte carte;
 		affichage.afficherTour(joueur.donnerNom());
-		carte = pioche.piocher();
+		Carte carte = pioche.piocher();
 		carteAjoute = joueur.ajouterCarte(carte);
 		if (carteAjoute) {
 			affichage.piocherCarte(joueur.donnerNom());
