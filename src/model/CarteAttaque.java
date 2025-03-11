@@ -22,7 +22,7 @@ public class CarteAttaque extends Carte {
 	}
 
 	@Override
-	protected ZoneJeu donnerZone() {
+	public ZoneJeu donnerZone() {
 		return ZoneJeu.ATTAQUE;
 	}
 }

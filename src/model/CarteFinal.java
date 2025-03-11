@@ -11,7 +11,7 @@ public class CarteFinal extends CarteSpecial {
 	}
 
 	@Override
-	protected void afficher(int numCarte) {
+	public void afficher(int numCarte) {
 		affichage.afficherCarteSpecial(titre, description, numCarte);
 
 	}

@@ -22,7 +22,7 @@ public class CartePopularite extends Carte {
 	}
 
 	@Override
-	protected ZoneJeu donnerZone() {
+	public ZoneJeu donnerZone() {
 		return ZoneJeu.POPULARITE;
 	}
 }

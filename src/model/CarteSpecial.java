@@ -11,7 +11,7 @@ public abstract class CarteSpecial extends Carte {
 	protected abstract void afficher(int numCarte);
 
 	@Override
-	protected ZoneJeu donnerZone() {
+	public ZoneJeu donnerZone() {
 		return ZoneJeu.SPECIAL;
 	}
 

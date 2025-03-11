@@ -102,7 +102,7 @@ public class Jeu {
 		}
 	}
 
-	public boolean avoirGagnant() {
+	private boolean avoirGagnant() {
 		for (int i = 0; i < NB_JOUEUR; i++) {
 			if (joueurs[i].getVie() == MIN_VIE || joueurs[i].getPopularite() == MAX_POPULARITE) {
 				return true;
@@ -111,7 +111,7 @@ public class Jeu {
 		return false;
 	}
 
-	public String donnerGagnant() {
+	private String donnerGagnant() {
 		for (int i = 0; i < NB_JOUEUR; i++) {
 			if (joueurs[i].getVie() == MIN_VIE) {
 				return joueurs[(i + 1) % NB_JOUEUR].donnerNom();
