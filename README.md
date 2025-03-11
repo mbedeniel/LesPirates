@@ -1,12 +1,12 @@
-# LesPirates
+# 🏴‍☠️ LesPirates
 
-## Introduction
+## 📜 Introduction
 
-LesPirates est un jeu de société sur le thème des pirates développé en Java. Dans ce jeu, deux pirates s'affrontent pour prendre le commandement du navire "Le Sanguinaire". Chaque joueur devra, par le biais de cartes, accumuler des points de popularité ou infliger des dégâts (points de vie) à son adversaire. Le premier pirate à atteindre 5 points de popularité ou celui qui survit le plus longtemps remporte la partie.
+LesPirates est un jeu de société sur le thème des pirates développé en Java. Dans ce jeu, deux pirates s'affrontent pour prendre le commandement du navire **"Le Sanguinaire"**. Chaque joueur devra, par le biais de cartes, accumuler des points de popularité ou infliger des dégâts (points de vie) à son adversaire. Le premier pirate à atteindre 5 points de popularité ou celui qui survit le plus longtemps remporte la partie.
 
-*Note : Ce projet est une version console.*
+*Note : Ce projet est une version console, avec des effets graphiques en ASCII pour améliorer l'immersion.*
 
-## Fonctionnalités
+## ⚙️ Fonctionnalités
 
 - **Phase 1 : Cartes de Popularité**  
   Implémentation initiale avec uniquement des cartes de popularité.
@@ -17,7 +17,7 @@ LesPirates est un jeu de société sur le thème des pirates développé en Java
 
 *Les règles détaillées et l’ensemble des fonctionnalités sont décrites dans le document de préparation du projet.*
 
-## Architecture et Conception
+## 🏗️ Architecture et Conception
 
 Le projet est développé en suivant les principes de la programmation orientée objet, avec une séparation nette entre la logique métier et l’affichage :
 
@@ -28,13 +28,13 @@ Le projet est développé en suivant les principes de la programmation orientée
   - **Diagrammes de séquence** : Diagramme système et diagrammes détaillés pour certaines interactions.  
   *[Espace réservé pour les diagrammes UML à venir]*
 
-## Technologies et Outils
+## 💻 Technologies et Outils
 
 - **Langage** : Java
 - **Environnement de développement** : Eclipse
 - **Linter/Qualité de code** : SonarQube
 
-## Installation et Exécution
+## 🚀 Installation et Exécution
 
 1. **Importation du projet**  
    - Importez le projet dans Eclipse en utilisant l’option "Import Existing Projects into Workspace".
@@ -45,17 +45,50 @@ Le projet est développé en suivant les principes de la programmation orientée
    - La méthode `main` se trouve dans la classe `Jeu`.
    - Exécutez la classe `Jeu` pour lancer l’application en mode console.
 
-## Organisation du Code
+## 🗂️ Organisation du Code
 
 Le code est organisé de manière à séparer clairement la logique métier (modèles) de la gestion de l’affichage :
 - **Modèle** : Contient la logique du jeu (gestion des cartes, points de vie, popularité, etc.).
-- **Affichage** : Gère l’interaction avec l’utilisateur en mode console.
+- **Affichage** : Gère l’interaction avec l’utilisateur en mode console et affiche des effets graphiques en ASCII.
 
-## Contact
+## 🎮 Exemple de Partie
 
-- **GitHub** : [mbedeniel](https://github.com/mbedeniel/)
+Voici un exemple fictif d'une partie en console, avec des effets graphiques en ASCII :
+
+───────────────────── [ Tour 1 ] ─────────────────────
+🏴‍☠️ **Jack le Borgne** joue sa carte **Discours Inspirant**  
+➡️ Effet : **+1 Popularité**  
+💫 Animation : *✨ Un halo lumineux entoure Jack, renforçant son charisme ! ✨*
+
+🔹 Zone de Popularité de Jack : [❤️❤️❤️❤️] (4/5)
+🔹 Points de Vie de Jack : [♥♥♥♥♥] (5/5)
+
+───────────────────── [ Tour 2 ] ─────────────────────
+🏴‍☠️ **Bill Jambe-de-Bois** joue sa carte **Main de Fer**  
+➡️ Effet : **+2 Popularité**, **-1 Vie**  
+⚡ Animation : *⚡ Une lame de fer traverse l'air, impactant l'adversaire ! ⚡*
+
+🔹 Zone de Popularité de Bill : [❤️❤️❤️] (3/5)
+🔹 Points de Vie de Bill : [♥♥♥♥] (4/5)
+
+───────────────────── [ Tour 3 ] ─────────────────────
+🏴‍☠️ **Jack le Borgne** joue sa carte **Abordage Réussi**  
+➡️ Effet : **+2 Popularité**  
+💥 Animation : *💥 Un abordage spectaculaire avec des éclats et des feux d'artifice en ASCII ! 💥*
+
+🔹 Zone de Popularité de Jack : [❤️❤️❤️❤️❤️] (5/5)
+
+🏆 **Jack le Borgne remporte la partie !**
+
+
+*Note : Les animations en ASCII (halo lumineux, éclairs, etc.) sont générées via des séquences de caractères pour enrichir l'affichage console et améliorer l'immersion du joueur.*
+
+## 👨‍💻 Contact
+
+- **Développeur** : [Niel Mbede](https://github.com/mbedeniel/)
 - **LinkedIn** : [Niel Mbede](https://www.linkedin.com/in/niel-mbede/)
 
 ---
 
 *Ce projet est réalisé dans le cadre du cours de Programmation Orientée Objet.*
+
