@@ -25,4 +25,5 @@ public class CarteAttaque extends Carte {
 	public ZoneJeu donnerZone() {
 		return ZoneJeu.ATTAQUE;
 	}
+	
 }

@@ -15,5 +15,5 @@ public class CarteFinal extends CarteSpecial {
 		affichage.afficherCarteSpecial(titre, description, numCarte);
 
 	}
-
+	
 }

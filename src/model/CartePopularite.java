@@ -25,4 +25,5 @@ public class CartePopularite extends Carte {
 	public ZoneJeu donnerZone() {
 		return ZoneJeu.POPULARITE;
 	}
+	
 }

@@ -43,7 +43,7 @@ public class Pioche {
 	}
 
 	public Carte piocher() {
-		if (cartes[0] == null) {
+		if (cartes[1] == null) {
 			renouvelerPioche();
 		}
 		nbCarte--;
@@ -71,5 +71,6 @@ public class Pioche {
 	public void renouvelerPioche() {
 		Pioche pioche = new Pioche();
 		cartes = pioche.cartes;
+		nbCarte = TAILLE_PIOCHE;
 	}
 }

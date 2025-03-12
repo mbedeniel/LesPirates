@@ -20,5 +20,5 @@ public class CarteSoin extends CarteSpecial {
 	public void afficher(int numCarte) {
 		affichage.afficherCarte(titre, description, vie, numCarte);
 	}
-
+	
 }
