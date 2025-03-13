@@ -23,6 +23,8 @@ public class Pioche {
 					"Le pirate distribue une partie de son butin pour gagner la faveur de l'equipage.", 3),
 			new CartePopularite("Chant de la Mer", "Un chant entrainant unit l'equipage et renforce leur admiration.",
 					2),
+
+			new CartePopularite("Raid Audacieux", "Attaque surprise et fructueuse, butin et admiration.", 3),
 			new CarteAttaque("Coup de Sabre", "Un coup de sabre bien place qui affaiblit l'adversaire.", -2),
 			new CarteAttaque("Coup de Poing", "Un violent coup de poing qui sonne l'adversaire.", -1),
 			new CarteAttaque("Jet d'Encre", "L'adversaire est aveugle temporairement et perd l'equilibre.", -1),
@@ -31,6 +33,7 @@ public class Pioche {
 			new CarteAttaque("Lame Empoisonnee", "Une blessure avec une lame enduite de poison affaiblit l'adversaire.",
 					-3),
 			new CarteAttaque("Boulet de Canon", "Un tir direct qui cause de lourds degats.", -3),
+			new CarteAttaque("Tempête de Lames", "Coups de sabre rapides, confusion et blessures.", -2),
 			new CarteDiffamation("Rebellion", -1), new CarteDiffamation("Blaspheme", -2), new CarteSoin("Grog", 1),
 			new CarteSoin("Bandages", 2), new CarteFinal("Scorbut") };
 
