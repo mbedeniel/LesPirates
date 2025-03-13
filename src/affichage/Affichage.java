@@ -27,7 +27,7 @@ public class Affichage implements IAffichage {
 						+ "\t -Chaque joueur pioche quatre cartes. A tour de role, un pirate pioche une nouvelle \n"
 						+ "\t carte et l’ajoute à sa main. Il doit ensuite decider s’il attaque son adversaire ou s’il \n"
 						+ "\t s’attribue des points de popularite. \n"
-						+ "\t -Chaque pirate possede cinq cœurs rouges correspondant a ses points de vie. S’il n’a \n"
+						+ "\t -Chaque pirate possede cinq coeurs rouges correspondant a ses points de vie. S’il n’a \n"
 						+ "\t plus de coeur, alors il a perdu et son adversaire gagne. \n"
 						+ "\t -Le but du jeu est que son pirate atteigne cinq points de popularite ou simplement \n"
 						+ "\t survive plus longtemps que son adversaire ! \n"
@@ -105,5 +105,10 @@ public class Affichage implements IAffichage {
 	public void afficherCarteSpecial(String titre, String description, int numCarte) {
 		System.out.println("\t numero carte : " + numCarte + " \n \t titre : " + titre + "\n \t description : "
 				+ description + " \n");
+	}
+	
+	@Override
+	public void renouvelerPioche() {
+		System.out.println("La pioche étant vide, nous procéderons à son renouvellement. \n");
 	}
 }

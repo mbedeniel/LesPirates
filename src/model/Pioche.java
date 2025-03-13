@@ -3,11 +3,14 @@ package model;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
+import affichage.IAffichage;
+
 public class Pioche {
 	private static final int TAILLE_PIOCHE = 15;
 	private Carte[] cartes = new Carte[TAILLE_PIOCHE];
 	private int nbCarte = TAILLE_PIOCHE;
 	private static SecureRandom random;
+	private static IAffichage affichage = Jeu.getAffichage();
 	private static final Carte[] TOUTE_CARTES = {
 			new CartePopularite("Discours Inspirant", "Un discours motivant qui renforce la loyaute de l'equipage.", 1),
 			new CartePopularite("Revolte Organisee", "Une mutinerie planifiee qui renforce la popularite du pirate.",
@@ -43,11 +46,15 @@ public class Pioche {
 	}
 
 	public Carte piocher() {
-		if (cartes[1] == null) {
+		if (cartes[0] == null) {
 			renouvelerPioche();
 		}
 		nbCarte--;
-		return retirerCarte(random.nextInt(0, nbCarte));
+		if(nbCarte != 0) {
+			return retirerCarte(random.nextInt(0, nbCarte));
+		}else {
+			return retirerCarte(nbCarte);
+		}
 	}
 
 	public Main piocherMain() {
@@ -69,6 +76,7 @@ public class Pioche {
 	}
 
 	public void renouvelerPioche() {
+		affichage.renouvelerPioche();
 		Pioche pioche = new Pioche();
 		cartes = pioche.cartes;
 		nbCarte = TAILLE_PIOCHE;

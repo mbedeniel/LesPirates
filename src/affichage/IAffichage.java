@@ -31,5 +31,7 @@ public interface IAffichage {
 	void afficherCartes(String nom);
 
 	void afficherCarteSpecial(String titre, String description, int numCarte);
+	
+	void renouvelerPioche();
 
 }
