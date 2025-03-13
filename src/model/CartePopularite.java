@@ -26,4 +26,11 @@ public class CartePopularite extends Carte {
 		return ZoneJeu.POPULARITE;
 	}
 	
+	@Override
+	public void jouerCarte(Joueur joueur, int numCarte) {
+		afficher(numCarte);
+		joueur.modifierPopularite(popularite);
+	}
+	
+	
 }

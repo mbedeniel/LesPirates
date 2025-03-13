@@ -53,7 +53,28 @@ public class Joueur {
 	public Carte recupererCarte(int numCarte) {
 		return main.retirerCarte(numCarte);
 	}
+	
+	public void setVie(int vie) {
+		this.vie = vie;
+	}
 
+
+	public void modifierVie(int nouvelVie) {
+		nouvelVie += vie;
+		if (nouvelVie < 0) {
+			nouvelVie = 0;
+		}
+		vie = nouvelVie;
+	}
+	
+	public void modifierPopularite(int nouvelPopularite) {
+		nouvelPopularite += popularite;
+		if(nouvelPopularite > 5) {
+			nouvelPopularite = 5;
+		}
+		vie = nouvelPopularite;
+	}
+	
 	public void jouerAttaque(Joueur adversaire, Carte carteJoue, int numCarte) {
 		CarteAttaque carteAttaque = (CarteAttaque) carteJoue;
 		carteAttaque.afficher(numCarte);

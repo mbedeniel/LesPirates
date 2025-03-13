@@ -21,4 +21,10 @@ public class CarteSoin extends CarteSpecial {
 		affichage.afficherCarte(titre, description, vie, numCarte);
 	}
 	
+	@Override
+	public void jouerCarte(Joueur joueur, int numCarte) {
+		afficher(numCarte);
+		joueur.modifierPopularite(vie);
+	}
+	
 }

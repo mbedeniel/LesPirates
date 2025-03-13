@@ -9,7 +9,7 @@ public class Jeu {
 	private static final int MAX_POPULARITE = 5;
 	private static final int NB_JOUEUR = 2;
 	private static IAffichage affichage = new Affichage();
-	private Joueur[] joueurs = { new Joueur(Nom.BILL), new Joueur(Nom.JACK) };
+	private static Joueur[] joueurs = { new Joueur(Nom.BILL), new Joueur(Nom.JACK) };
 	private Pioche pioche = new Pioche();
 
 	public static IAffichage getAffichage() {
@@ -58,31 +58,37 @@ public class Jeu {
 		Carte carteJoue = joueur.recupererCarte(choixCarte);
 		ZoneJeu zoneJeu = carteJoue.donnerZone();
 		affichage.jouerCarte(joueur.donnerNom(), zoneJeu);
-		switch (zoneJeu) {
-		case ATTAQUE: {
-			joueur.jouerAttaque(adversaire, carteJoue, choixCarte);
-			break;
-		}
-		case POPULARITE: {
-			joueur.jouerPopularite(carteJoue, choixCarte);
-			break;
-		}
-		case SPECIAL: {
-			jouerSpecial(joueur, adversaire, carteJoue, choixCarte);
-			break;
-		}
-		}
+		
+		
+		carteJoue.jouerCarte(joueur, choixCarte);
+		
+		
+		
+//		switch (zoneJeu) {
+//		case ATTAQUE: {
+//			joueur.jouerAttaque(adversaire, carteJoue, choixCarte);
+//			break;
+//		}
+//		case POPULARITE: {
+//			joueur.jouerPopularite(carteJoue, choixCarte);
+//			break;
+//		}
+//		case SPECIAL: {
+//			jouerSpecial(joueur, adversaire, carteJoue, choixCarte);
+//			break;
+//		}
+//		}
 	}
 
-	private void jouerSpecial(Joueur joueur, Joueur adversaire, Carte carteJoue, int choixCarte) {
-		if (carteJoue instanceof CarteDiffamation) {
-			joueur.jouerDiffamation(adversaire, carteJoue, choixCarte);
-		} else if (carteJoue instanceof CarteSoin) {
-			joueur.jouerSoin(carteJoue, choixCarte);
-		} else {
-			joueur.jouerFinal(adversaire, carteJoue, choixCarte);
-		}
-	}
+//	private void jouerSpecial(Joueur joueur, Joueur adversaire, Carte carteJoue, int choixCarte) {
+//		if (carteJoue instanceof CarteDiffamation) {
+//			joueur.jouerDiffamation(adversaire, carteJoue, choixCarte);
+//		} else if (carteJoue instanceof CarteSoin) {
+//			joueur.jouerSoin(carteJoue, choixCarte);
+//		} else {
+//			joueur.jouerFinal(adversaire, carteJoue, choixCarte);
+//		}
+//	}
 
 	private void afficherJoueur() {
 		affichage.afficherJoueurs();
@@ -123,10 +129,19 @@ public class Jeu {
 		}
 		return null;
 	}
+	
+	
+	public static Joueur recupererAdversaire(Joueur joueur) {
+		if(joueur.equals(joueurs[0])) {
+			return joueurs[1];
+		}
+		return joueurs[0];
+	}
 
 	public static void main(String[] args) {
 		Jeu jeu = new Jeu();
 		jeu.lancerJeu();
 	}
+
 
 }

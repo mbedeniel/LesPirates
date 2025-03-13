@@ -14,5 +14,7 @@ public abstract class Carte {
 	protected abstract void afficher(int numCarte);
 
 	protected abstract ZoneJeu donnerZone();
+	
+	protected abstract void jouerCarte(Joueur joueur, int numCarte);
 
 }

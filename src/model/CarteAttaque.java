@@ -26,4 +26,12 @@ public class CarteAttaque extends Carte {
 		return ZoneJeu.ATTAQUE;
 	}
 	
+	@Override
+	public void jouerCarte(Joueur joueur, int numCarte) {
+		joueur = Jeu.recupererAdversaire(joueur);
+		afficher(numCarte);
+		joueur.modifierVie(vie);
+	}
+	
+	
 }
