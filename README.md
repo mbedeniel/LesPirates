@@ -90,5 +90,3 @@ Voici un exemple fictif d'une partie en console, avec des effets graphiques en A
 
 ---
 
-*Ce projet est réalisé dans le cadre du cours de Programmation Orientée Objet.*
-
