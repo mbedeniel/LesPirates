@@ -4,8 +4,6 @@
 
 LesPirates est un jeu de société sur le thème des pirates développé en Java. Dans ce jeu, deux pirates s'affrontent pour prendre le commandement du navire **"Le Sanguinaire"**. Chaque joueur devra, par le biais de cartes, accumuler des points de popularité ou infliger des dégâts (points de vie) à son adversaire. Le premier pirate à atteindre 5 points de popularité ou celui qui survit le plus longtemps remporte la partie.
 
-*Note : Ce projet est une version console, avec des effets graphiques en ASCII pour améliorer l'immersion.*
-
 ## ⚙️ Fonctionnalités
 
 - **Phase 1 : Cartes de Popularité**  
@@ -14,8 +12,6 @@ LesPirates est un jeu de société sur le thème des pirates développé en Java
   Extension du jeu avec des cartes d’attaque pour affecter les points de vie de l’adversaire.
 - **Phase 3 : Cartes Spéciales**  
   Ajout de cartes de défense, de sabotage, etc., pour enrichir le gameplay.
-
-*Les règles détaillées et l’ensemble des fonctionnalités sont décrites dans le document de préparation du projet.*
 
 ## 🏗️ Architecture et Conception
 
