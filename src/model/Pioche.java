@@ -15,8 +15,7 @@ public class Pioche {
 			new CartePopularite("Discours Inspirant", "Un discours motivant qui renforce la loyaute de l'equipage.", 1),
 			new CartePopularite("Revolte Organisee", "Une mutinerie planifiee qui renforce la popularite du pirate.",
 					1),
-			new CartePopularite(
-					"Abordage Reussi", "Un abordage heroique qui impressionne l'equipage.", 2),
+			new CartePopularite("Abordage Reussi", "Un abordage heroique qui impressionne l'equipage.", 2),
 			new CartePopularite("Recit Heroique", "Le pirate raconte ses exploits, captivant l'equipage.", 1),
 			new CartePopularite("Festin du Capitaine", "Un grand banquet offert a l'equipage renforce la loyaute.", 2),
 			new CartePopularite("Tresor Partage",
@@ -53,9 +52,9 @@ public class Pioche {
 			renouvelerPioche();
 		}
 		nbCarte--;
-		if(nbCarte != 0) {
+		if (nbCarte != 0) {
 			return retirerCarte(random.nextInt(0, nbCarte));
-		}else {
+		} else {
 			return retirerCarte(nbCarte);
 		}
 	}

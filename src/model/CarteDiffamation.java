@@ -20,7 +20,7 @@ public class CarteDiffamation extends CarteSpecial {
 	public void afficher(int numCarte) {
 		affichage.afficherCarte(titre, description, popularite, numCarte);
 	}
-	
+
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
 		joueur = Jeu.recupererAdversaire(joueur);

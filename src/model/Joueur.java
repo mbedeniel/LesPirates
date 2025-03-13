@@ -49,15 +49,14 @@ public class Joueur {
 	public boolean ajouterCarte(Carte carte) {
 		return main.ajouterCarte(carte);
 	}
-	
+
 	public Carte recupererCarte(int numCarte) {
 		return main.retirerCarte(numCarte);
 	}
-	
+
 	public void setVie(int vie) {
 		this.vie = vie;
 	}
-
 
 	public void modifierVie(int nouvelVie) {
 		nouvelVie += vie;
@@ -66,60 +65,15 @@ public class Joueur {
 		}
 		vie = nouvelVie;
 	}
-	
+
 	public void modifierPopularite(int nouvelPopularite) {
 		nouvelPopularite += popularite;
-		if(nouvelPopularite > 5) {
-			nouvelPopularite = 5;
-		}
-		vie = nouvelPopularite;
-	}
-	
-	public void jouerAttaque(Joueur adversaire, Carte carteJoue, int numCarte) {
-		CarteAttaque carteAttaque = (CarteAttaque) carteJoue;
-		carteAttaque.afficher(numCarte);
-		int nouvelVie = adversaire.vie + carteAttaque.getVie();
-		if (nouvelVie < 0) {
-			nouvelVie = 0;
-		}
-		adversaire.vie = nouvelVie;
-	}
-
-	public void jouerPopularite(Carte carteJoue, int numCarte) {
-		CartePopularite cartePopularite = (CartePopularite) carteJoue;
-		cartePopularite.afficher(numCarte);
-		int nouvelPopularite = popularite + cartePopularite.getPopularite();
 		if (nouvelPopularite > 5) {
 			nouvelPopularite = 5;
-		}
-		popularite = nouvelPopularite;
-	}
-
-	public void jouerSoin(Carte carteJoue, int numCarte) {
-		CarteSoin carteSoin = (CarteSoin) carteJoue;
-		carteSoin.afficher(numCarte);
-		int nouvelVie = vie + carteSoin.getVie();
-		if (nouvelVie > 5) {
-			nouvelVie = 5;
-		}
-		vie = nouvelVie;
-	}
-
-	public void jouerDiffamation(Joueur adversaire, Carte carteJoue, int numCarte) {
-		CarteDiffamation carteDiffamation = (CarteDiffamation) carteJoue;
-		carteDiffamation.afficher(numCarte);
-		int nouvelPopularite = adversaire.popularite + carteDiffamation.getPopularite();
-		if (nouvelPopularite < 0) {
+		} else if (nouvelPopularite < 0) {
 			nouvelPopularite = 0;
 		}
-		adversaire.popularite = nouvelPopularite;
-
-	}
-
-	public void jouerFinal(Joueur adversaire, Carte carteJoue, int numCarte) {
-		CarteFinal carteFinal = (CarteFinal) carteJoue;
-		carteFinal.afficher(numCarte);
-		adversaire.vie = 0;
+		popularite = nouvelPopularite;
 	}
 
 }

@@ -4,7 +4,6 @@ public class CartePermutation extends CarteSpecial {
 
 	public CartePermutation(String titre, String description) {
 		super(titre, description);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -12,11 +11,15 @@ public class CartePermutation extends CarteSpecial {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
-		//TODO
-		afficher(numCarte);
+		Joueur adversaire = Jeu.recupererAdversaire(joueur);
+		Main main = joueur.getMain();
+		joueur.setMain(adversaire.getMain());
+		adversaire.setMain(main);
+		joueur.afficherMain();
+		adversaire.afficherMain();
 	}
 
 }
