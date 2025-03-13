@@ -24,7 +24,7 @@ public class CarteSoin extends CarteSpecial {
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
 		afficher(numCarte);
-		joueur.modifierPopularite(vie);
+		joueur.modifierVie(vie);
 	}
 	
 }

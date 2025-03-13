@@ -29,6 +29,10 @@ public class Joueur {
 		return vie;
 	}
 
+	public void setVie(int vie) {
+		this.vie = vie;
+	}
+
 	public int getPopularite() {
 		return popularite;
 	}
@@ -52,10 +56,6 @@ public class Joueur {
 
 	public Carte recupererCarte(int numCarte) {
 		return main.retirerCarte(numCarte);
-	}
-
-	public void setVie(int vie) {
-		this.vie = vie;
 	}
 
 	public void modifierVie(int nouvelVie) {

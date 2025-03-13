@@ -2,18 +2,13 @@ package model;
 
 public class CartePermutation extends CarteSpecial {
 
-	public CartePermutation(String titre, String description) {
-		super(titre, description);
-	}
-
-	@Override
-	protected void afficher(int numCarte) {
-		// TODO Auto-generated method stub
-
+	public CartePermutation(String titre) {
+		super(titre, "permute les mains des 02 joueurs");
 	}
 
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
+		afficher(numCarte);
 		Joueur adversaire = Jeu.recupererAdversaire(joueur);
 		Main main = joueur.getMain();
 		joueur.setMain(adversaire.getMain());
