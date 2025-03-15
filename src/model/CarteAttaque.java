@@ -1,11 +1,9 @@
 package model;
 
-import affichage.IAffichage;
 import affichage.ZoneJeu;
 
 public class CarteAttaque extends Carte {
 	private int vie;
-	private static IAffichage affichage = Jeu.getAffichage();
 
 	public CarteAttaque(String titre, String description, int vie) {
 		super(titre, description);

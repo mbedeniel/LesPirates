@@ -54,7 +54,7 @@ public class Jeu {
 	}
 
 	private void jouerCarte(Joueur joueur) {
-		int choixCarte = affichage.choisirCarte(joueur.donnerNom(), Main.getTailleMain());
+		int choixCarte = affichage.choisirCarte(joueur.donnerNom(), joueur.nbCarte());
 		Carte carteJoue = joueur.recupererCarte(choixCarte);
 		ZoneJeu zoneJeu = carteJoue.donnerZone();
 		affichage.jouerCarte(joueur.donnerNom(), zoneJeu);

@@ -8,8 +8,8 @@ public class Affichage implements IAffichage {
 
 	@Override
 	public void souhaiterBienvenue() {
-		System.out.println("PRESENTATION ET REGLES DU JEU  \n");
-		System.out.println("\t Bienvenue \n");
+		System.out.println("PRESENTATION ET REGLES DU JEU : \n");
+		System.out.println("\t Bienvenue. \n");
 	}
 
 	@Override
@@ -40,49 +40,49 @@ public class Affichage implements IAffichage {
 	@Override
 	public void afficherCarte(String titre, String description, int effet, int numCarte) {
 		System.out.println("\t numero carte : " + numCarte + " \n \t titre : " + titre + "\n \t effet : " + effet
-				+ "\n \t description : " + description + " \n");
+				+ "\n \t description : " + description + ". \n");
 	}
 
 	@Override
 	public void afficherCartes(String nom) {
-		System.out.println("AFFICHAGE DES CARTES DE " + nom + "\n");
+		System.out.println("AFFICHAGE DES CARTES DE " + nom + " : \n");
 	}
 
 	@Override
 	public void afficherJoueur(String nom, int vie, int popularite) {
-		System.out.println(" \t nom : " + nom + "\n \t vie : " + vie + "\n \t popularite : " + popularite + " \n");
+		System.out.println(" \t nom : " + nom + "\n \t vie : " + vie + "\n \t popularite : " + popularite + ". \n");
 	}
 
 	@Override
 	public void afficherJoueurs() {
-		System.out.println("AFFICHAGE DES JOUEURS  \n");
+		System.out.println("AFFICHAGE DES JOUEURS : \n");
 	}
 
 	@Override
 	public void piocherMain(String nom, int nbCarte) {
-		System.out.println(nom + " pioche une main de " + nbCarte + " cartes \n");
+		System.out.println(nom + " pioche une main de " + nbCarte + " cartes. \n");
 
 	}
 
 	@Override
 	public void piocherCarte(String nom) {
-		System.out.println(nom + " pioche une carte \n");
+		System.out.println(nom + " pioche une carte. \n");
 	}
 
 	@Override
 	public void jouerCarte(String nom, ZoneJeu zoneJeu) {
-		System.out.println(nom + " joue une carte dans la zone " + zoneJeu + " \n");
+		System.out.println(nom + " joue une carte dans la zone " + zoneJeu + ". \n");
 	}
 
 	@Override
 	public void afficherTour(String nom) {
-		System.out.println("C'est au tour de " + nom + " de jouer \n");
+		System.out.println("C'est au tour de " + nom + " de jouer. \n");
 	}
 
 	@Override
 	public void afficherGagnant(String nom) {
 		System.out.println(
-				"Felicitation a " + nom + " il a gagne la partie ne soit pas jaloue tu gagnera la prochaine foi \n");
+				"Felicitation a " + nom + " il a gagne la partie ne soit pas jaloue tu gagnera la prochaine foi. \n");
 	}
 
 	@Override
@@ -104,11 +104,17 @@ public class Affichage implements IAffichage {
 	@Override
 	public void afficherCarteSpecial(String titre, String description, int numCarte) {
 		System.out.println("\t numero carte : " + numCarte + " \n \t titre : " + titre + "\n \t description : "
-				+ description + " \n");
+				+ description + ". \n");
 	}
 	
 	@Override
 	public void renouvelerPioche() {
 		System.out.println("La pioche étant vide, nous procéderons à son renouvellement. \n");
+	}
+	
+	@Override
+	public void afficherPermutation(String nomJoueur,String nomAdversaire, int numCarte) {
+		System.out.println(nomJoueur+ " recoit la carte numero : "+numCarte+" du joueur "+nomAdversaire+". \n");
+		
 	}
 }

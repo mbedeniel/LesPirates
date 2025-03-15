@@ -1,10 +1,7 @@
 package model;
 
-import affichage.IAffichage;
-
 public class CarteSoin extends CarteSpecial {
 
-	private static IAffichage affichage = Jeu.getAffichage();
 	private int vie;
 
 	public CarteSoin(String titre, int vie) {

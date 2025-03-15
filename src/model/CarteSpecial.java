@@ -1,11 +1,8 @@
 package model;
 
-import affichage.IAffichage;
 import affichage.ZoneJeu;
 
 public abstract class CarteSpecial extends Carte {
-
-	private static IAffichage affichage = Jeu.getAffichage();
 
 	protected CarteSpecial(String titre, String description) {
 		super(titre, description);
