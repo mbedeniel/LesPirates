@@ -8,7 +8,7 @@ public class CartePermutation extends CarteSpecial {
 	private static SecureRandom random;
 
 	public CartePermutation(String titre) {
-		super(titre, "permute les mains des 02 joueurs");
+		super(titre, "permute 01 carte de chaque joueurs avec une carte de son adversaire");
 		try {
 			random = SecureRandom.getInstanceStrong();
 		} catch (NoSuchAlgorithmException e) {
