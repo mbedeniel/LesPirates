@@ -20,9 +20,9 @@ public class CartePermutation extends CarteSpecial {
 	public void jouerCarte(Joueur joueur, int numCarte) {
 		afficher(numCarte);
 		Joueur adversaire = Jeu.recupererAdversaire(joueur);
-		int numCarteAdversaire = random.nextInt(1, adversaire.nbCarte());
+		int numCarteAdversaire = random.nextInt(1, adversaire.recupererNbCarte());
 		Carte carteAdversaire = adversaire.recupererCarte(numCarteAdversaire);
-		int numCarteJoueur = random.nextInt(1, joueur.nbCarte());
+		int numCarteJoueur = random.nextInt(1, joueur.recupererNbCarte());
 		Carte carteJoueur = joueur.recupererCarte(numCarteJoueur);
 		adversaire.ajouterCarte(carteJoueur);
 		joueur.ajouterCarte(carteAdversaire);

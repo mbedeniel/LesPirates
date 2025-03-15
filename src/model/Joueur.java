@@ -13,16 +13,8 @@ public class Joueur {
 		this.nom = nom;
 	}
 
-	public Main getMain() {
-		return main;
-	}
-
 	public void setMain(Main main) {
 		this.main = main;
-	}
-
-	public Nom getNom() {
-		return nom;
 	}
 
 	public int getVie() {
@@ -50,7 +42,7 @@ public class Joueur {
 		return nom.toString();
 	}
 
-	public int nbCarte() {
+	public int recupererNbCarte() {
 		return main.getNbCarte();
 	}
 
