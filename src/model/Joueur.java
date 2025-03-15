@@ -49,7 +49,7 @@ public class Joueur {
 	public String donnerNom() {
 		return nom.toString();
 	}
-	
+
 	public int nbCarte() {
 		return main.getNbCarte();
 	}

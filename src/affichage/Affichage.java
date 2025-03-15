@@ -106,15 +106,16 @@ public class Affichage implements IAffichage {
 		System.out.println("\t numero carte : " + numCarte + " \n \t titre : " + titre + "\n \t description : "
 				+ description + ". \n");
 	}
-	
+
 	@Override
 	public void renouvelerPioche() {
 		System.out.println("La pioche étant vide, nous procéderons à son renouvellement. \n");
 	}
-	
+
 	@Override
-	public void afficherPermutation(String nomJoueur,String nomAdversaire, int numCarte) {
-		System.out.println(nomJoueur+ " recoit la carte numero : "+numCarte+" du joueur "+nomAdversaire+". \n");
-		
+	public void afficherPermutation(String nomJoueur, String nomAdversaire, int numCarte) {
+		System.out
+				.println(nomJoueur + " recoit la carte numero : " + numCarte + " du joueur " + nomAdversaire + ". \n");
+
 	}
 }

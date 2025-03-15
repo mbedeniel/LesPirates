@@ -3,7 +3,7 @@ package model;
 public class Main {
 	private static final int TAILLE_MAIN = 5;
 	private Carte[] cartes = new Carte[TAILLE_MAIN];
-	private int nbCarte = TAILLE_MAIN-1;
+	private int nbCarte = TAILLE_MAIN - 1;
 
 	public Main(Carte[] cartes) {
 		this.cartes = cartes;
@@ -22,7 +22,7 @@ public class Main {
 	}
 
 	public void afficher() {
-		for (int i = 0; i < nbCarte ; i++) {
+		for (int i = 0; i < nbCarte; i++) {
 			cartes[i].afficher(i + 1);
 		}
 	}
@@ -30,7 +30,7 @@ public class Main {
 	public boolean ajouterCarte(Carte carte) {
 		if (cartes[nbCarte] == null) {
 			cartes[nbCarte] = carte;
-			nbCarte ++;
+			nbCarte++;
 			return true;
 		}
 		return false;
@@ -42,7 +42,7 @@ public class Main {
 			cartes[numCarte - 1] = cartes[numCarte];
 		}
 		cartes[nbCarte - 1] = null;
-		nbCarte --;
+		nbCarte--;
 		return carte;
 	}
 }

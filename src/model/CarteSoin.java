@@ -17,11 +17,11 @@ public class CarteSoin extends CarteSpecial {
 	public void afficher(int numCarte) {
 		affichage.afficherCarte(titre, description, vie, numCarte);
 	}
-	
+
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
 		afficher(numCarte);
 		joueur.modifierVie(vie);
 	}
-	
+
 }

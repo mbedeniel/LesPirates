@@ -31,9 +31,9 @@ public interface IAffichage {
 	void afficherCartes(String nom);
 
 	void afficherCarteSpecial(String titre, String description, int numCarte);
-	
+
 	void renouvelerPioche();
-	
-	void afficherPermutation(String nomJoueur,String nomAdversaire, int numCarte);
+
+	void afficherPermutation(String nomJoueur, String nomAdversaire, int numCarte);
 
 }
