@@ -9,7 +9,7 @@ public class CarteFinal extends CarteSpecial {
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
 		afficher(numCarte);
-		joueur.setVie(0);
+		joueur.setVie(jeu.getMIN_VIE());
 	}
 
 }
