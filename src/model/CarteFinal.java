@@ -2,8 +2,8 @@ package model;
 
 public class CarteFinal extends CarteSpecial {
 
-	protected CarteFinal(String titre) {
-		super(titre, "fait gagner automatiquement, l'adversaire perd tout ses points");
+	protected CarteFinal(String titre, Jeu jeu) {
+		super(titre, "fait gagner automatiquement, l'adversaire perd tout ses points", jeu);
 	}
 
 	@Override

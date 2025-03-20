@@ -4,8 +4,8 @@ public class CarteSoin extends CarteSpecial {
 
 	private int vie;
 
-	public CarteSoin(String titre, int vie) {
-		super(titre, "rajoute de la vie au joueur");
+	public CarteSoin(String titre, int vie, Jeu jeu) {
+		super(titre, "rajoute de la vie au joueur", jeu);
 		this.vie = vie;
 	}
 

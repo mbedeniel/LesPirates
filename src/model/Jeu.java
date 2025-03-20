@@ -5,19 +5,37 @@ import affichage.IAffichage;
 import affichage.ZoneJeu;
 
 public class Jeu {
-	private static final int MIN_VIE = 0;
-	private static final int MAX_POPULARITE = 5;
-	private static final int NB_JOUEUR = 2;
+	private final int MIN_VIE = 0;
+	private final int MAX_VIE = 5;
+	private final int MAX_POPULARITE = 5;
+	private final int MIN_POPULARITE = 0;
+	private final int NB_JOUEUR = 2;
+	private final Joueur[] joueurs = { new Joueur(Nom.BILL, this), new Joueur(Nom.JACK, this) };
+	private Pioche pioche = new Pioche(this);
 	private static IAffichage affichage = new Affichage();
-	private static Joueur[] joueurs = { new Joueur(Nom.BILL), new Joueur(Nom.JACK) };
-	private Pioche pioche = new Pioche();
 
 	public static IAffichage getAffichage() {
 		return affichage;
 	}
 
-	public static int getNbJoueur() {
+	public int getNbJoueur() {
 		return NB_JOUEUR;
+	}
+
+	public int getMIN_VIE() {
+		return MIN_VIE;
+	}
+
+	public int getMAX_VIE() {
+		return MAX_VIE;
+	}
+
+	public int getMAX_POPULARITE() {
+		return MAX_POPULARITE;
+	}
+
+	public int getMIN_POPULARITE() {
+		return MIN_POPULARITE;
 	}
 
 	public void lancerJeu() {
@@ -63,8 +81,10 @@ public class Jeu {
 
 	private void afficherJoueur() {
 		affichage.afficherJoueurs();
+		Joueur joueur;
 		for (int i = 0; i < NB_JOUEUR; i++) {
-			joueurs[i].afficher();
+			joueur = joueurs[i];
+			joueur.afficher();
 		}
 	}
 
@@ -101,7 +121,7 @@ public class Jeu {
 		return null;
 	}
 
-	public static Joueur recupererAdversaire(Joueur joueur) {
+	public Joueur recupererAdversaire(Joueur joueur) {
 		if (joueur.equals(joueurs[0])) {
 			return joueurs[1];
 		}

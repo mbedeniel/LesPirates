@@ -4,8 +4,8 @@ public class CarteDiffamation extends CarteSpecial {
 
 	private int popularite;
 
-	public CarteDiffamation(String titre, int popularite) {
-		super(titre, "retire des points de popularite a l’adversaire");
+	public CarteDiffamation(String titre, int popularite, Jeu jeu) {
+		super(titre, "retire des points de popularite a l’adversaire",jeu);
 		this.popularite = popularite;
 	}
 
@@ -20,7 +20,7 @@ public class CarteDiffamation extends CarteSpecial {
 
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
-		joueur = Jeu.recupererAdversaire(joueur);
+		joueur = jeu.recupererAdversaire(joueur);
 		afficher(numCarte);
 		joueur.modifierPopularite(popularite);
 	}

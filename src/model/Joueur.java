@@ -7,10 +7,12 @@ public class Joueur {
 	private int vie = 5;
 	private int popularite = 0;
 	private Main main;
+	private Jeu jeu;
 	private static IAffichage affichage = Jeu.getAffichage();
 
-	public Joueur(Nom nom) {
+	public Joueur(Nom nom, Jeu jeu) {
 		this.nom = nom;
+		this.jeu = jeu;
 	}
 
 	public void setMain(Main main) {
@@ -56,17 +58,19 @@ public class Joueur {
 
 	public void modifierVie(int nouvelVie) {
 		nouvelVie += vie;
-		if (nouvelVie < 0) {
-			nouvelVie = 0;
+		if (nouvelVie < jeu.getMIN_VIE()) {
+			nouvelVie = jeu.getMIN_VIE();
+		}else if(nouvelVie > jeu.getMAX_VIE()){
+			nouvelVie = jeu.getMAX_VIE();
 		}
 		vie = nouvelVie;
 	}
 
 	public void modifierPopularite(int nouvelPopularite) {
 		nouvelPopularite += popularite;
-		if (nouvelPopularite > 5) {
-			nouvelPopularite = 5;
-		} else if (nouvelPopularite < 0) {
+		if (nouvelPopularite > jeu.getMAX_POPULARITE()) {
+			nouvelPopularite = jeu.getMAX_POPULARITE();
+		} else if (nouvelPopularite < jeu.getMIN_POPULARITE()) {
 			nouvelPopularite = 0;
 		}
 		popularite = nouvelPopularite;

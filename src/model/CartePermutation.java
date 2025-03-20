@@ -7,8 +7,8 @@ public class CartePermutation extends CarteSpecial {
 
 	private static SecureRandom random;
 
-	public CartePermutation(String titre) {
-		super(titre, "permute 01 carte de chaque joueurs avec une carte de son adversaire");
+	public CartePermutation(String titre, Jeu jeu) {
+		super(titre, "permute 01 carte de chaque joueurs avec une carte de son adversaire", jeu);
 		try {
 			random = SecureRandom.getInstanceStrong();
 		} catch (NoSuchAlgorithmException e) {
@@ -19,7 +19,7 @@ public class CartePermutation extends CarteSpecial {
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
 		afficher(numCarte);
-		Joueur adversaire = Jeu.recupererAdversaire(joueur);
+		Joueur adversaire = jeu.recupererAdversaire(joueur);
 		int numCarteAdversaire = random.nextInt(1, adversaire.recupererNbCarte());
 		Carte carteAdversaire = adversaire.recupererCarte(numCarteAdversaire);
 		int numCarteJoueur = random.nextInt(1, joueur.recupererNbCarte());

@@ -5,8 +5,8 @@ import affichage.ZoneJeu;
 public class CartePopularite extends Carte {
 	private int popularite;
 
-	public CartePopularite(String titre, String description, int popularite) {
-		super(titre, description);
+	public CartePopularite(String titre, String description, Jeu jeu, int popularite) {
+		super(titre, description, jeu);
 		this.popularite = popularite;
 	}
 

@@ -4,8 +4,8 @@ import affichage.ZoneJeu;
 
 public abstract class CarteSpecial extends Carte {
 
-	protected CarteSpecial(String titre, String description) {
-		super(titre, description);
+	protected CarteSpecial(String titre, String description, Jeu jeu) {
+		super(titre, description, jeu);
 	}
 
 	@Override
