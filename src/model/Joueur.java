@@ -47,6 +47,10 @@ public class Joueur {
 	public int recupererNbCarte() {
 		return main.getNbCarte();
 	}
+	
+	public int recupererTailleMain() {
+		return main.getTailleMain();
+	}
 
 	public boolean ajouterCarte(Carte carte) {
 		return main.ajouterCarte(carte);
@@ -71,7 +75,7 @@ public class Joueur {
 		if (nouvelPopularite > jeu.getMAX_POPULARITE()) {
 			nouvelPopularite = jeu.getMAX_POPULARITE();
 		} else if (nouvelPopularite < jeu.getMIN_POPULARITE()) {
-			nouvelPopularite = 0;
+			nouvelPopularite = jeu.getMIN_POPULARITE();
 		}
 		popularite = nouvelPopularite;
 	}

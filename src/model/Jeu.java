@@ -62,7 +62,7 @@ public class Jeu {
 		carteAjoute = joueur.ajouterCarte(cartePioche);
 		if (carteAjoute) {
 			affichage.piocherCarte(joueur.donnerNom());
-			cartePioche.afficher(Main.getTailleMain());
+			cartePioche.afficher(joueur.recupererTailleMain());
 			joueur.afficherMain();
 			jouerCarte(joueur);
 			afficherJoueur();
@@ -94,8 +94,8 @@ public class Jeu {
 		affichage.presenterJeux();
 		afficherJoueur();
 		for (int i = 0; i < NB_JOUEUR; i++) {
-			affichage.piocherMain(joueurs[i].donnerNom(), Main.getTailleMain() - 1);
-			joueurs[i].setMain(pioche.piocherMain());
+			affichage.piocherMain(joueurs[i].donnerNom(), joueurs[i].recupererTailleMain() - 1);
+			joueurs[i].setMain(pioche.piocherMain(joueurs[i].recupererTailleMain()));
 			joueurs[i].afficherMain();
 		}
 	}

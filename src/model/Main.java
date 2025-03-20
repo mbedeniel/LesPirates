@@ -1,7 +1,7 @@
 package model;
 
 public class Main {
-	private static final int TAILLE_MAIN = 5;
+	private final int TAILLE_MAIN = 5;
 	private Carte[] cartes = new Carte[TAILLE_MAIN];
 	private int nbCarte = TAILLE_MAIN - 1;
 
@@ -9,16 +9,12 @@ public class Main {
 		this.cartes = cartes;
 	}
 
-	public static int getTailleMain() {
+	public int getTailleMain() {
 		return TAILLE_MAIN;
 	}
 
 	public int getNbCarte() {
 		return nbCarte;
-	}
-
-	public void setCartes(Carte[] cartes) {
-		this.cartes = cartes;
 	}
 
 	public void afficher() {
