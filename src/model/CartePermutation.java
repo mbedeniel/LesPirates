@@ -20,16 +20,17 @@ public class CartePermutation extends CarteSpecial {
 	public void jouerCarte(Joueur joueur, int numCarte) {
 		afficher(numCarte);
 		int nbJoueur = jeu.getNB_JOUEUR();
-		Joueur[] joueurs = {jeu.recupererAdversaire(joueur),joueur};
+		Joueur[] joueurs = { jeu.recupererAdversaire(joueur), joueur };
 		int[] numCartes = new int[nbJoueur];
 		Carte[] cartes = new Carte[nbJoueur];
-		for(int i=0;i<nbJoueur;i++) {
+		for (int i = 0; i < nbJoueur; i++) {
 			numCartes[i] = random.nextInt(1, joueurs[i].recupererNbCarte());
 			cartes[i] = joueurs[i].recupererCarte(numCartes[i]);
 		}
-		for(int i=0;i<nbJoueur;i++) {
-			joueurs[i].ajouterCarte(cartes[nbJoueur-i]);
-			affichage.afficherPermutation(joueurs[i].donnerNom(), joueurs[nbJoueur-i].donnerNom(), numCartes[nbJoueur-i]);
+		for (int i = 0; i < nbJoueur; i++) {
+			joueurs[i].ajouterCarte(cartes[nbJoueur - i]);
+			affichage.afficherPermutation(joueurs[i].donnerNom(), joueurs[nbJoueur - i].donnerNom(),
+					numCartes[nbJoueur - i]);
 		}
 
 	}
