@@ -18,7 +18,7 @@ public class Jeu {
 		return affichage;
 	}
 
-	public int getNbJoueur() {
+	public int getNB_JOUEUR() {
 		return NB_JOUEUR;
 	}
 

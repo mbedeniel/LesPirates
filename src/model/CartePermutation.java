@@ -19,15 +19,18 @@ public class CartePermutation extends CarteSpecial {
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
 		afficher(numCarte);
-		Joueur adversaire = jeu.recupererAdversaire(joueur);
-		int numCarteAdversaire = random.nextInt(1, adversaire.recupererNbCarte());
-		Carte carteAdversaire = adversaire.recupererCarte(numCarteAdversaire);
-		int numCarteJoueur = random.nextInt(1, joueur.recupererNbCarte());
-		Carte carteJoueur = joueur.recupererCarte(numCarteJoueur);
-		adversaire.ajouterCarte(carteJoueur);
-		joueur.ajouterCarte(carteAdversaire);
-		affichage.afficherPermutation(adversaire.donnerNom(), joueur.donnerNom(), numCarteJoueur);
-		affichage.afficherPermutation(joueur.donnerNom(), adversaire.donnerNom(), numCarteAdversaire);
+		int nbJoueur = jeu.getNB_JOUEUR();
+		Joueur[] joueurs = {jeu.recupererAdversaire(joueur),joueur};
+		int[] numCartes = new int[nbJoueur];
+		Carte[] cartes = new Carte[nbJoueur];
+		for(int i=0;i<nbJoueur;i++) {
+			numCartes[i] = random.nextInt(1, joueurs[i].recupererNbCarte());
+			cartes[i] = joueurs[i].recupererCarte(numCartes[i]);
+		}
+		for(int i=0;i<nbJoueur;i++) {
+			joueurs[i].ajouterCarte(cartes[nbJoueur-i]);
+			affichage.afficherPermutation(joueurs[i].donnerNom(), joueurs[nbJoueur-i].donnerNom(), numCartes[nbJoueur-i]);
+		}
 
 	}
 
