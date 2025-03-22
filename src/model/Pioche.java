@@ -7,10 +7,6 @@ import affichage.IAffichage;
 
 public class Pioche {
 	private static final int TAILLE_PIOCHE = 15;
-	private Carte[] cartes = new Carte[TAILLE_PIOCHE];
-	private int nbCarte = TAILLE_PIOCHE;
-	private static SecureRandom random;
-	private static IAffichage affichage = Jeu.getAffichage();
 	private final Carte[] TOUTE_CARTES = {
 			new CartePopularite("Discours Inspirant", "Un discours motivant qui renforce la loyaute de l'equipage.", 1),
 			new CartePopularite("Revolte Organisee", "Une mutinerie planifiee qui renforce la popularite du pirate.",
@@ -34,6 +30,10 @@ public class Pioche {
 			new CarteAttaque("Tempête de Lames", "Coups de sabre rapides, confusion et blessures.", -2),
 			new CarteDiffamation("Rebellion", -1), new CarteDiffamation("Blaspheme", -2), new CarteSoin("Grog", 1),
 			new CarteSoin("Bandages", 2), new CarteFinal("Scorbut"), new CartePermutation("New chance") };
+	private static SecureRandom random;
+	private static IAffichage affichage = Jeu.getAffichage();
+	private Carte[] cartes = new Carte[TAILLE_PIOCHE];
+	private int nbCarte = TAILLE_PIOCHE;
 
 	public Pioche() {
 
