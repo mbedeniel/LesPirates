@@ -5,8 +5,8 @@ import affichage.ZoneJeu;
 public class CarteAttaque extends Carte {
 	private int vie;
 
-	public CarteAttaque(String titre, String description, Jeu jeu, int vie) {
-		super(titre, description, jeu);
+	public CarteAttaque(String titre, String description, int vie) {
+		super(titre, description);
 		this.vie = vie;
 	}
 
@@ -26,7 +26,7 @@ public class CarteAttaque extends Carte {
 
 	@Override
 	public void jouerCarte(Joueur joueur, int numCarte) {
-		joueur = jeu.recupererAdversaire(joueur);
+		joueur = joueur.recupererAdversaire();
 		afficher(numCarte);
 		joueur.modifierVie(vie);
 	}

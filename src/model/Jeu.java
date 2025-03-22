@@ -10,8 +10,9 @@ public class Jeu {
 	private final int MAX_POPULARITE = 5;
 	private final int MIN_POPULARITE = 0;
 	private final int NB_JOUEUR = 2;
-	private final Joueur[] joueurs = { new Joueur(Nom.BILL, this), new Joueur(Nom.JACK, this) };
-	private Pioche pioche = new Pioche(this);
+	private final int TAILLE_PIOCHE_MAIN = 4;
+	private Joueur[] joueurs = new Joueur[2];
+	private Pioche pioche;
 	private static IAffichage affichage = new Affichage();
 
 	public static IAffichage getAffichage() {
@@ -89,13 +90,16 @@ public class Jeu {
 	}
 
 	private void initialiser() {
+		joueurs[0] = new Joueur(Nom.BILL, this);
+		joueurs[1] = new Joueur(Nom.JACK, this);
+		pioche = new Pioche();
 		affichage.souhaiterBienvenue();
 		affichage.raconterHistoire();
 		affichage.presenterJeux();
 		afficherJoueur();
 		for (int i = 0; i < NB_JOUEUR; i++) {
-			affichage.piocherMain(joueurs[i].donnerNom(), joueurs[i].recupererTailleMain() - 1);
-			joueurs[i].setMain(pioche.piocherMain(joueurs[i].recupererTailleMain()));
+			affichage.piocherMain(joueurs[i].donnerNom(), TAILLE_PIOCHE_MAIN);
+			joueurs[i].setMain(pioche.piocherMain(TAILLE_PIOCHE_MAIN));
 			joueurs[i].afficherMain();
 		}
 	}

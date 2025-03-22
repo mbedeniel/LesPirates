@@ -47,7 +47,7 @@ public class Joueur {
 	public int recupererNbCarte() {
 		return main.getNbCarte();
 	}
-	
+
 	public int recupererTailleMain() {
 		return main.getTailleMain();
 	}
@@ -64,7 +64,7 @@ public class Joueur {
 		nouvelVie += vie;
 		if (nouvelVie < jeu.getMIN_VIE()) {
 			nouvelVie = jeu.getMIN_VIE();
-		}else if(nouvelVie > jeu.getMAX_VIE()){
+		} else if (nouvelVie > jeu.getMAX_VIE()) {
 			nouvelVie = jeu.getMAX_VIE();
 		}
 		vie = nouvelVie;
@@ -78,6 +78,14 @@ public class Joueur {
 			nouvelPopularite = jeu.getMIN_POPULARITE();
 		}
 		popularite = nouvelPopularite;
+	}
+
+	public Joueur recupererAdversaire() {
+		return jeu.recupererAdversaire(this);
+	}
+
+	public int recupererMinVie() {
+		return jeu.getMIN_VIE();
 	}
 
 }
