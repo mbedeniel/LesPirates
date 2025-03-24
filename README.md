@@ -1,6 +1,6 @@
 # 🏴‍☠️ LesPirates
 
-## 📜 Introduction
+## 🌟 Introduction
 
 LesPirates est un jeu de société sur le thème des pirates développé en Java. Dans ce jeu, deux pirates s'affrontent pour prendre le commandement du navire **"Le Sanguinaire"**. Chaque joueur devra, par le biais de cartes, accumuler des points de popularité ou infliger des dégâts (points de vie) à son adversaire. Le premier pirate à atteindre 5 points de popularité ou celui qui survit le plus longtemps remporte la partie.
 
@@ -13,16 +13,27 @@ LesPirates est un jeu de société sur le thème des pirates développé en Java
 - **Phase 3 : Cartes Spéciales**  
   Ajout de cartes de défense, de sabotage, etc., pour enrichir le gameplay.
 
-## 🏗️ Architecture et Conception
+### 🏆 Cartes Spéciales
+
+- **Carte Soin** : Augmente la vie du joueur qui la joue.
+- **Carte Diffamation** : Diminue les points de popularité de l’adversaire.
+- **Carte Finale** : Fait gagner automatiquement celui qui la joue.
+- **Carte Permutation** : Permet à un joueur d'échanger une de ses cartes avec une carte de son adversaire.
+
+## 🏰 Architecture et Conception
 
 Le projet est développé en suivant les principes de la programmation orientée objet, avec une séparation nette entre la logique métier et l’affichage :
 
 - **Modélisation** :  
   - Utilisation de l’héritage, d’interfaces, de classes abstraites et d’énumérations pour modéliser les entités du jeu.
 - **Diagrammes UML** :  
-  - **Diagramme de classes** : Décrit la structure du système (modèles et relations).  
-  - **Diagrammes de séquence** : Diagramme système et diagrammes détaillés pour certaines interactions.  
-  *[Espace réservé pour les diagrammes UML à venir]*
+  - [**Diagramme de classes**](https://www.edrawmax.com/online/share.html?code=f9d171c806fc11f0bd090a54be41f961) : Décrit la structure du système (modèles et relations).
+  - [**Diagramme de séquence système**](https://www.edrawmax.com/online/share.html?code=66a4f2bc086911f0a9690a54be41f961) : Montre les interactions à haut niveau.
+  - [**Diagramme de séquence détaillé - Carte Soin**](https://www.edrawmax.com/online/share.html?code=70a4f5b205fa11f08cf40a951ba8b83d)
+  - [**Diagramme de séquence détaillé - Carte Permutation**](https://www.edrawmax.com/online/share.html?code=ce081a5606fc11f082130a951ba8b83d)
+  - [**Référence afficherJoueurs**](https://www.edrawmax.com/online/share.html?code=60cad906086911f0aced0a54be41f961)
+  
+  Des informations détaillées sur ces diagrammes UML sont disponibles dans le dossier **UML**.
 
 ## 💻 Technologies et Outils
 
@@ -49,40 +60,29 @@ Le code est organisé de manière à séparer clairement la logique métier (mod
 
 ## 🎮 Exemple de Partie
 
-Voici un exemple fictif d'une partie en console, avec des effets graphiques en ASCII :
-
-───────────────────── [ Tour 1 ] ─────────────────────
+─── [ Tour 1 ] ───
 🏴‍☠️ **Jack le Borgne** joue sa carte **Discours Inspirant**  
 ➡️ Effet : **+1 Popularité**  
-💫 Animation : *✨ Un halo lumineux entoure Jack, renforçant son charisme ! ✨*
+🌟 Animation : *Jack galvanise l’équipage avec un discours passionné !*
 
-🔹 Zone de Popularité de Jack : [❤️❤️❤️❤️] (4/5)
-🔹 Points de Vie de Jack : [♥♥♥♥♥] (5/5)
+...
 
-───────────────────── [ Tour 2 ] ─────────────────────
-🏴‍☠️ **Bill Jambe-de-Bois** joue sa carte **Main de Fer**  
-➡️ Effet : **+2 Popularité**, **-1 Vie**  
-⚡ Animation : *⚡ Une lame de fer traverse l'air, impactant l'adversaire ! ⚡*
+─── [ Tour 5 ] ───
+🏴‍☠️ **Bill Jambe-de-Bois** joue sa carte **Carte Permutation**  
+➡️ Effet : **Échange une carte avec Jack**  
+🌟 Animation : *Les cartes sont discrètement échangées sous le regard des matelots !*
 
-🔹 Zone de Popularité de Bill : [❤️❤️❤️] (3/5)
-🔹 Points de Vie de Bill : [♥♥♥♥] (4/5)
+...
 
-───────────────────── [ Tour 3 ] ─────────────────────
-🏴‍☠️ **Jack le Borgne** joue sa carte **Abordage Réussi**  
-➡️ Effet : **+2 Popularité**  
-💥 Animation : *💥 Un abordage spectaculaire avec des éclats et des feux d'artifice en ASCII ! 💥*
-
-🔹 Zone de Popularité de Jack : [❤️❤️❤️❤️❤️] (5/5)
+─── [ Tour 8 ] ───
+🏴‍☠️ **Jack le Borgne** joue sa carte **Carte Finale**  
+➡️ Effet : **Victoire Immédiate**  
+🌟 Animation : *Jack s’empare du gouvernail sous un tonnerre d’acclamations !*
 
 🏆 **Jack le Borgne remporte la partie !**
 
-
-*Note : Les animations en ASCII (halo lumineux, éclairs, etc.) sont générées via des séquences de caractères pour enrichir l'affichage console et améliorer l'immersion du joueur.*
-
-## 👨‍💻 Contact
+## 👨‍💼 Contact
 
 - **Développeur** : [Niel Mbede](https://github.com/mbedeniel/)
 - **LinkedIn** : [Niel Mbede](https://www.linkedin.com/in/niel-mbede/)
-
----
 
